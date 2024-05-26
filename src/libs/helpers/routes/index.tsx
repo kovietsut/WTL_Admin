@@ -2,7 +2,6 @@ import AuthLayout from '@/components/templates/layout/AuthLayout';
 import MainLayout from '@/components/templates/layout/MainLayout';
 import AuthGuard from '@/guards/AuthGuard';
 import GuestGuard from '@/guards/GuestGuard';
-import ArmorTypeList from '@/pages/ArmorTypeList';
 import { lazy } from 'react';
 import { BrowserRouter, MemoryRouter, Navigate, useRoutes } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
@@ -40,14 +39,14 @@ function Routes() {
       children: [
         { element: <Navigate to={PATH.home} replace />, index: true },
         { path: 'home', Component: Dashboard },
-        {
-          path: 'amt',
-          children: [
-            { element: <Navigate to={PATH.armorType.list} replace />, index: true },
-            { path: 'list', Component: ArmorTypeList },
-            { path: ':id', Component: Dashboard },
-          ],
-        },
+        // {
+        //   path: 'amt',
+        //   children: [
+        //     { element: <Navigate to={PATH.armorType.list} replace />, index: true },
+        //     { path: 'list', Component: ArmorTypeList },
+        //     { path: ':id', Component: Dashboard },
+        //   ],
+        // },
       ],
     },
     { path: 'component', Component: ComponentPage },

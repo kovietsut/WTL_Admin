@@ -1,7 +1,7 @@
 import { arSD, enUS, frFR, viVN, zhCN } from '@mui/material/locale';
 import { SettingsValueProps } from './components/templates/settings/type';
 
-export const APP_NAME = 'Sunken City';
+export const APP_NAME = 'Web Truyen Lo';
 
 export const BASE_URL = import.meta.env.HOST_API || 'http://localhost:7152/';
 
