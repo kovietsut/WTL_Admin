@@ -11,7 +11,7 @@ export * from './path';
 
 // ----------------------------------------------------------------------------------
 
-const Login = Loadable(lazy(() => import('@/pages/auth/login')));
+const Login = Loadable(lazy(() => import('@/pages/Auth')));
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
 const ComponentPage = Loadable(lazy(() => import('@/pages/Component')));
 
@@ -49,7 +49,6 @@ function Routes() {
         // },
       ],
     },
-    { path: 'component', Component: ComponentPage },
     { path: '404', Component: ComponentPage },
     { path: '*', element: <Navigate to="/404" replace /> },
   ]);

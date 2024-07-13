@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------
 
-import { useAuth } from '@/store/module/auth/useAuth';
+import { useAuth } from '@/store/useAuth';
 import { ReactNode } from 'react';
 import { Navigate } from 'react-router-dom';
 

@@ -1,8 +1,6 @@
 import { APP_NAME } from '@/config';
-import { APPBAR } from '@/libs/helpers/constants';
+import { APPBAR, SIDENAV } from '@/libs/helpers/constants';
 import { PATH } from '@/libs/helpers/routes';
-import { SETTING_OPTIONS, TOption } from '@/libs/lookup/options';
-import { useAuth } from '@/store/module/auth/useAuth';
 import {
   AppBar,
   Box,
@@ -19,6 +17,15 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Iconify from '../atoms/Iconify';
 import MenuPopover from '../atoms/MenuPopover';
+import { useAuth } from '@/store/useAuth';
+
+type TOption = {
+  id: string;
+  value: string;
+  link?: string;
+};
+
+const SETTING_OPTIONS: TOption[] = [{ id: '1', value: 'Profile' }];
 
 type Props = {
   variant: 'detail' | 'dense';
@@ -58,8 +65,18 @@ const Appbar: React.FC<Props> = ({ variant }) => {
   };
 
   return (
-    <AppBar sx={{ height: APPBAR.height }} color="default" elevation={0}>
+    <AppBar
+      sx={{
+        height: APPBAR.height,
+        width: {
+          lg: `calc(100% - ${SIDENAV.width}px)`,
+        },
+        backgroundColor: 'white',
+      }}
+      elevation={0}
+    >
       <Toolbar>
+        {/* Breadcumb here */}
         <Link href={PATH.home} variant="h6" underline="none" color="common.black">
           {APP_NAME}
         </Link>
@@ -68,7 +85,7 @@ const Appbar: React.FC<Props> = ({ variant }) => {
             <Stack direction="row-reverse" flexGrow={1}>
               <Stack direction="row" spacing={1}>
                 <IconButton onClick={onSettingClick} size="small">
-                  <Iconify icon="iconamoon:menu-burger-horizontal" width={20} height={20} />
+                  <Iconify icon="radix-icons:avatar" width={24} height={24} />
                 </IconButton>
               </Stack>
             </Stack>

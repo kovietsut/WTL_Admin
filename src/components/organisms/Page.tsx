@@ -14,7 +14,7 @@ const Page = forwardRef<HTMLDivElement, Props>(({ children, title = '', meta, ..
   return (
     <>
       <Helmet>
-        <title>{`${title} | SCWiki Dashboard`}</title>
+        <title>{`${title} | WTL Dashboard`}</title>
         {meta}
       </Helmet>
 

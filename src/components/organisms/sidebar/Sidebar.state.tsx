@@ -1,0 +1,116 @@
+import Iconify from '@/components/atoms/Iconify';
+import { PATH } from '@/libs/helpers/routes';
+import { createContext, useContext, useMemo } from 'react';
+
+const initialSettings = {
+  colorPreset: 'indigo',
+  contrast: 'normal',
+  direction: 'ltr',
+  layout: 'vertical',
+  navColor: 'evident',
+  paletteMode: 'light',
+  responsiveFontSizes: true,
+  stretch: false,
+};
+
+const initialState = {
+  ...initialSettings,
+  isInitialized: false,
+  openDrawer: false,
+};
+
+const SettingsContext = createContext({
+  ...initialState,
+  handleDrawerClose: () => {},
+  handleDrawerOpen: () => {},
+  handleReset: () => {},
+  handleUpdate: () => {},
+  isCustom: false,
+});
+
+export const useSettings = () => useContext(SettingsContext);
+
+export const useSections = () => {
+  //   const { t } = useTranslation();
+
+  return useMemo(() => {
+    return [
+      {
+        title: '', // Added title
+        path: '', // Added path
+        items: [
+          {
+            title: 'Dashboard',
+            path: PATH.home,
+            icon: <Iconify width={24} height={24} icon="material-symbols:home" color="#404958" />,
+          },
+          {
+            title: 'Comics',
+            path: PATH.comics,
+            icon: <Iconify width={24} height={24} icon="ri:book-fill" color="#404958" />,
+          },
+          {
+            title: 'Novel',
+            path: PATH.novel,
+            icon: <Iconify width={24} height={24} icon="mingcute:book-3-fill" color="#404958" />,
+          },
+          {
+            title: 'Translator',
+            path: PATH.translator,
+            icon: (
+              <Iconify
+                width={24}
+                height={24}
+                icon="carbon:ibm-watson-language-translator"
+                color="#404958"
+              />
+            ),
+          },
+          {
+            title: 'User',
+            path: PATH.user,
+            icon: <Iconify width={24} height={24} icon="ph:user-fill" color="#404958" />,
+          },
+          {
+            title: 'Author',
+            path: PATH.author,
+            icon: (
+              <Iconify width={24} height={24} icon="material-symbols-light:draw" color="#404958" />
+            ),
+          },
+          {
+            title: 'Genres',
+            path: PATH.genres,
+            icon: (
+              <Iconify
+                width={24}
+                height={24}
+                icon="material-symbols:type-specimen"
+                color="#404958"
+              />
+            ),
+          },
+          {
+            title: 'Comments',
+            path: PATH.comments,
+            icon: (
+              <Iconify width={24} height={24} icon="material-symbols:comment" color="#404958" />
+            ),
+          },
+          {
+            title: 'Settings',
+            path: PATH.settings,
+            icon: (
+              <Iconify width={24} height={24} icon="material-symbols:settings" color="#404958" />
+            ),
+          },
+          {
+            title: 'Sign Out',
+            path: PATH.logout,
+            icon: <Iconify width={24} height={24} icon="material-symbols:logout" color="#404958" />,
+          },
+        ],
+      },
+    ];
+  }, []);
+};

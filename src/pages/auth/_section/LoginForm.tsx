@@ -6,9 +6,9 @@ import { LoadingButton } from '@mui/lab';
 import { Alert, Box, IconButton, InputAdornment, Link, Stack, Typography } from '@mui/material';
 import { useMemo, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useAuth } from '../../../../store/module/auth/useAuth';
+import { useAuth } from '../../../store/useAuth';
 import { validationSchema } from '../Login.state';
-import { LoginFormProps } from '@/interfaces/Login';
+import { LoginFormProps } from '@/interfaces/login';
 
 const LoginForm = () => {
   const { signIn, error } = useAuth();
@@ -41,7 +41,7 @@ const LoginForm = () => {
           {!!error && <Alert severity="error">{error}</Alert>}
 
           <Typography variant="h2" fontWeight={600}>
-            Login
+            Login Web Admin WTL
           </Typography>
 
           <Stack spacing={1}>

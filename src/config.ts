@@ -1,18 +1,8 @@
 import { arSD, enUS, frFR, viVN, zhCN } from '@mui/material/locale';
-import { SettingsValueProps } from './components/templates/settings/type';
 
-export const APP_NAME = 'Web Truyen Lo';
+export const APP_NAME = 'WTL';
 
 export const BASE_URL = import.meta.env.HOST_API || 'http://localhost:7152/';
-
-export const defaultSettings: SettingsValueProps = {
-  themeMode: 'light',
-  themeDirection: 'ltr',
-  themeContrast: 'default',
-  themeLayout: 'horizontal',
-  themeColorPresets: 'default',
-  themeStretch: false,
-};
 
 // MULTI LANGUAGES
 // Please remove `localStorage` when you change settings.

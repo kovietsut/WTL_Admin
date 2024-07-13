@@ -1,5 +1,5 @@
-import { useAuth } from '@/store/module/auth/useAuth';
-import Login from '@/pages/auth/login';
+import Login from '@/pages/Auth';
+import { useAuth } from '@/store/useAuth';
 import { ReactNode, useState } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 

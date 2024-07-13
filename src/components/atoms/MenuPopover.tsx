@@ -9,14 +9,6 @@ export default function MenuPopover({ sx, children, ...rest }: Props): JSX.Eleme
     <Popover
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      PaperProps={{
-        sx: {
-          p: 1,
-          width: 200,
-          overflow: 'inherit',
-          ...sx,
-        },
-      }}
       {...rest}
     >
       {children}
