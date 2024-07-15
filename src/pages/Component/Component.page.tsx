@@ -81,7 +81,7 @@ const ComponentPage = (): JSX.Element => {
         </ToggleButtonGroup>
         <div>
           <Badge badgeContent={4} color="error">
-            <Iconify icon="mdi:bell" sx={{ color: 'common.black', width: 20, height: 20 }} />
+            <Iconify icon="mdi:bell" sx={{ width: 20, height: 20 }} />
           </Badge>
         </div>
         <Stack direction="row">

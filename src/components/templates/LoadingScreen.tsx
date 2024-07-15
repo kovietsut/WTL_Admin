@@ -1,7 +1,7 @@
 import { SxProps } from '@mui/material';
 import { styled } from '@mui/material/styles';
+import { Logo } from '../atoms/Logo';
 // import ProgressBar from './ProgressBar';
-import Logo from '../atoms/Logo';
 
 // ----------------------------------------------------------------------
 

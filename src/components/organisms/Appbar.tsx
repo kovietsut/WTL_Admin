@@ -35,7 +35,7 @@ const Appbar: React.FC<Props> = ({ variant }) => {
   // const isDesktop = useResponsive('up', 'lg');
   const { credential, signOut } = useAuth();
   const theme = useTheme();
-  const isLight = theme.palette.mode === 'light';
+  const isLight = theme.palette.mode === 'dark';
 
   const [anchorElSetting, setAnchorElSetting] = useState<HTMLElement | null>(null);
 
@@ -71,7 +71,6 @@ const Appbar: React.FC<Props> = ({ variant }) => {
         width: {
           lg: `calc(100% - ${SIDENAV.width}px)`,
         },
-        backgroundColor: 'white',
       }}
       elevation={0}
     >

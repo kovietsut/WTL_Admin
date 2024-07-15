@@ -38,7 +38,7 @@ function Routes() {
       ),
       children: [
         { element: <Navigate to={PATH.home} replace />, index: true },
-        { path: 'home', Component: Dashboard },
+        { path: PATH.home, Component: Dashboard },
         // {
         //   path: 'amt',
         //   children: [

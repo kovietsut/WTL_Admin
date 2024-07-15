@@ -1,9 +1,20 @@
 import { arSD, enUS, frFR, viVN, zhCN } from '@mui/material/locale';
+import { TSettingsState } from './libs/theme/type';
 
 export const APP_NAME = 'WTL';
 
 export const BASE_URL = import.meta.env.HOST_API || 'http://localhost:7152/';
 
+export const defaultSettings: TSettingsState = {
+  themeMode: 'light',
+  themeDirection: 'ltr',
+  themeContrast: 'default',
+  themeLayout: 'horizontal',
+  themeColorPresets: 'default',
+  themeStretch: false,
+};
+
+export const MAX_PAYLOAD = 100000000;
 // MULTI LANGUAGES
 // Please remove `localStorage` when you change settings.
 // ----------------------------------------------------------------------

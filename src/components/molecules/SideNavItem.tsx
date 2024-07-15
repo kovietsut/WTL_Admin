@@ -117,12 +117,13 @@ export const SideNavItem: React.FC<SideNavItemProps> = (props) => {
           <Box
             component="span"
             sx={{
-              color: 'var(--nav-item-color)',
+              // color: 'var(--nav-item-color)',
+              color: '#9da4ae',
               flexGrow: 1,
               fontFamily: (theme) => theme.typography.fontFamily,
               fontSize: depth > 0 ? 13 : 14,
               fontWeight: depth > 0 ? 500 : 600,
-              lineHeight: '24px',
+              lineHeight: '26px',
               whiteSpace: 'nowrap',
               ...(active && {
                 color: 'var(--nav-item-active-color)',
@@ -185,8 +186,8 @@ export const SideNavItem: React.FC<SideNavItemProps> = (props) => {
           width: '100%',
           ...(active && {
             ...(depth === 0 && {
-              // backgroundColor: 'var(--nav-item-active-bg)',
-              backgroundColor: 'rgba(255, 255, 255, 0.04)',
+              backgroundColor: 'var(--nav-item-active-bg)',
+              // backgroundColor: 'rgba(255, 255, 255, 0.04)',
             }),
           }),
           '&:hover': {
@@ -215,12 +216,13 @@ export const SideNavItem: React.FC<SideNavItemProps> = (props) => {
         <Box
           component="span"
           sx={{
-            color: 'var(--nav-item-color)',
+            // color: 'var(--nav-item-color)',
+            color: '#9da4ae',
             flexGrow: 1,
             fontFamily: (theme) => theme.typography.fontFamily,
-            fontSize: depth > 0 ? 13 : 14,
+            fontSize: depth > 0 ? 14 : 15,
             fontWeight: depth > 0 ? 500 : 600,
-            lineHeight: '24px',
+            lineHeight: '26px',
             whiteSpace: 'nowrap',
             ...(active && {
               color: 'var(--nav-item-active-color)',

@@ -14,4 +14,5 @@ export const PATH = {
   comments: '/app/comments',
   settings: '/app/settings',
   logout: '/app/logout',
+  docs: '/app/docs',
 };

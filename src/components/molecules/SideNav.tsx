@@ -1,10 +1,12 @@
-import { Box, Drawer, Stack, Typography } from '@mui/material';
+import { Box, Button, Drawer, Stack, Typography } from '@mui/material';
 import { Theme, useTheme } from '@mui/material/styles';
 import { useMemo } from 'react';
-import Logo from '../atoms/Logo';
 import Scrollbar from '../atoms/ScrollBar';
 import { SideNavSection } from './SideNavSection';
 import { SIDENAV } from '@/libs/helpers/constants';
+import { PATH } from '@/libs/helpers/routes';
+import Iconify from '../atoms/Iconify';
+import { Logo } from '../atoms/Logo';
 
 const useCssVars = (color: string) => {
   const theme: Theme = useTheme();
@@ -31,7 +33,7 @@ const useCssVars = (color: string) => {
           };
         } else {
           return {
-            '--nav-bg': theme.palette.background.default,
+            '--nav-bg': theme.palette.background.neutral[100],
             '--nav-color': theme.palette.text.primary,
             '--nav-border-color': theme.palette.background.neutral[100],
             '--nav-logo-border': theme.palette.background.neutral[100],
@@ -185,20 +187,7 @@ export const SideNav: React.FC<SideNavProps> = (props) => {
       >
         <Stack sx={{ height: '100%' }}>
           <Stack alignItems="center" direction="row" spacing={2} sx={{ p: 3 }}>
-            <Box
-              sx={{
-                borderColor: 'var(--nav-logo-border)',
-                borderRadius: 1,
-                borderStyle: 'solid',
-                borderWidth: 1,
-                display: 'flex',
-                height: 40,
-                p: '4px',
-                width: 40,
-              }}
-            >
-              <Logo />
-            </Box>
+            <Logo />
             <Stack alignItems="center" direction="row" spacing={2} {...props}>
               <Box sx={{ flexGrow: 1 }}>
                 <Typography color="neutral.400" variant="body2">
@@ -227,6 +216,23 @@ export const SideNav: React.FC<SideNavProps> = (props) => {
               />
             ))}
           </Stack>
+          <Box sx={{ p: 3 }}>
+            <Typography variant="subtitle1">Need help?</Typography>
+            <Typography color="neutral.400" sx={{ mb: 2 }} variant="body2">
+              Please check our docs.
+            </Typography>
+            <Button
+              component="a"
+              fullWidth
+              href={PATH.docs}
+              startIcon={<Iconify icon="oui:documentation" width={24} height={24} />}
+              target="_blank"
+              variant="contained"
+              sx={{ borderRadius: 2.6 }}
+            >
+              Documentation
+            </Button>
+          </Box>
         </Stack>
       </Scrollbar>
     </Drawer>

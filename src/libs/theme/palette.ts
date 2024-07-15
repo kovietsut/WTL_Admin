@@ -62,8 +62,8 @@ declare module '@mui/material' {
 const PRIMARY = {
   lighter: '#E8E6EF',
   light: '#A298BF',
-  main: '#000000',
-  dark: '#2E2E2E',
+  main: '#6366F1',
+  dark: '#4338CA',
   darker: '#382f52',
 };
 const SECONDARY = {
@@ -111,8 +111,10 @@ const GREY = {
   500: '#919EAB',
   600: '#637381',
   700: '#454F5B',
-  800: '#212B36',
-  900: '#161C24',
+  800: '#111927',
+  900: '#0E1320',
+  1000: '#9da4ae',
+  1100: '#1C2536',
   500_8: alpha('#919EAB', 0.08),
   500_12: alpha('#919EAB', 0.12),
   500_16: alpha('#919EAB', 0.16),
@@ -140,7 +142,7 @@ const CHART_COLORS = {
 };
 
 const COMMON = {
-  common: { black: GREY[800], white: GREY[100] },
+  common: { black: GREY[800], white: GREY[100], grey: GREY[1000] },
   primary: { ...PRIMARY, contrastText: '#fff' },
   secondary: { ...SECONDARY, contrastText: '#fff' },
   info: { ...INFO, contrastText: '#fff' },
@@ -176,9 +178,9 @@ const palette: {
   dark: {
     ...COMMON,
     mode: 'dark',
-    text: { primary: '#fff', secondary: GREY[500], disabled: GREY[600] },
-    background: { paper: GREY[800], default: GREY[900], neutral: GREY[500_16] },
-    action: { active: GREY[500], ...COMMON.action },
+    text: { primary: GREY[1000], secondary: GREY[500], disabled: GREY[600] },
+    background: { paper: GREY[800], default: GREY[900], neutral: GREY[1100] },
+    action: { ...COMMON.action, active: GREY[500] },
   },
 };
 

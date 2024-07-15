@@ -1,6 +1,7 @@
 import { pxToRem, responsiveFontSizes } from '@/utils/getFontValue';
 
-const FONT_PRIMARY = 'Public Sans, sans-serif'; // Google Font
+const FONT_PRIMARY =
+  '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"'; // Google Font
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
 const typography = {

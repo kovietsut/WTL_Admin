@@ -5,7 +5,7 @@ import { Box, SxProps } from '@mui/material';
 const RootStyle = styled('div')(() => ({
   flexGrow: 1,
   height: '100%',
-  overflow: 'hidden',
+  overflow: 'auto',
 }));
 
 const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
@@ -18,14 +18,12 @@ const SimpleBarStyle = styled(SimpleBarReact)(({ theme }) => ({
       opacity: 1,
     },
   },
-  '& .simplebar-track.simplebar-vertical': {
-    width: 10,
-  },
-  '& .simplebar-track.simplebar-horizontal .simplebar-scrollbar': {
-    height: 6,
-  },
   '& .simplebar-mask': {
     zIndex: 'inherit',
+  },
+  '& .simplebar-placeholder': {
+    width: '0px !important',
+    height: '0px !important',
   },
 }));
 
@@ -43,7 +41,7 @@ export default function Scrollbar({ children, sx, ...other }: Props) {
 
   if (isMobile) {
     return (
-      <Box sx={{ overflowX: 'auto', ...sx }} {...other}>
+      <Box sx={{ ...sx }} {...other}>
         {children}
       </Box>
     );
