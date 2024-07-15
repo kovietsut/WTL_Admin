@@ -62,8 +62,8 @@ declare module '@mui/material' {
 const PRIMARY = {
   lighter: '#E8E6EF',
   light: '#A298BF',
-  main: '#6366F1',
-  dark: '#4338CA',
+  main: '#16B364',
+  dark: '#084C2E',
   darker: '#382f52',
 };
 const SECONDARY = {
