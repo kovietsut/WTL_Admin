@@ -10,5 +10,6 @@
     "partialize",
     "tanstack",
     "zustand"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }

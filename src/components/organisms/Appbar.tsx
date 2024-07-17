@@ -97,7 +97,7 @@ const Appbar: React.FC<Props> = ({ variant }) => {
                   sx={{ color: isLight ? theme.palette.grey[600] : theme.palette.grey[400] }}
                 />
                 <Typography variant="subtitle2" color="text.secondary">
-                  {credential?.username || 'Admin'}
+                  {credential?.email || 'Admin'}
                 </Typography>
               </Box>
               <Divider sx={{ borderStyle: 'dashed' }} />

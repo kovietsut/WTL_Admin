@@ -16,7 +16,7 @@ const LoginForm = () => {
 
   const defaultValues = useMemo<LoginFormProps>(
     () => ({
-      username: 'phatnt',
+      email: 'phatnt',
       password: '12345678',
     }),
     []
@@ -32,7 +32,7 @@ const LoginForm = () => {
     formState: { isSubmitting, isValid },
   } = methods;
 
-  const onSubmit = (data: LoginFormProps) => signIn(data.username, data.password);
+  const onSubmit = (data: LoginFormProps) => signIn(data.email, data.password);
 
   return (
     <FormProvider methods={methods} onSubmit={handleSubmit(onSubmit)}>
@@ -46,9 +46,9 @@ const LoginForm = () => {
 
           <Stack spacing={1}>
             <Typography variant="subtitle2" fontWeight={500}>
-              Username
+              Email
             </Typography>
-            <RHFTextField name="username" placeholder="Username" />
+            <RHFTextField name="email" placeholder="Email" />
           </Stack>
 
           <Stack spacing={1}>

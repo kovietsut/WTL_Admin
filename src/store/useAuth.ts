@@ -29,8 +29,8 @@ const authStore = create<TAuthStore>()(
     (set, get) => ({
       ...initialState,
       isAuthenticated: () => Boolean(get().credential),
-      signIn: async (username: string, password: string) => {
-        const { data: response } = await signIn(username, password);
+      signIn: async (email: string, password: string) => {
+        const { data: response } = await signIn(email, password);
         const { isSuccess, data } = response;
         if (isSuccess && data) {
           set({ credential: data });

@@ -1,7 +1,7 @@
 import { Password, Username } from '@/shared/cmp/validation';
 
 export type LoginFormData = {
-  username: Username;
+  email: Username;
   password: Password;
 };
 

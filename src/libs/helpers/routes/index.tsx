@@ -7,6 +7,10 @@ import { BrowserRouter, MemoryRouter, Navigate, useRoutes } from 'react-router-d
 import { StaticRouter } from 'react-router-dom/server';
 import { Loadable } from './Loadable';
 import { PATH } from './path';
+import Error401Page from '@/pages/Error/Error401.page';
+import Error404Page from '@/pages/Error/Error404.page';
+import Error403Page from '@/pages/Error/Error403.page';
+import Error500Page from '@/pages/Error/Error500.page';
 export * from './path';
 
 // ----------------------------------------------------------------------------------
@@ -49,7 +53,10 @@ function Routes() {
         // },
       ],
     },
-    { path: '404', Component: ComponentPage },
+    { path: '401', Component: Error401Page },
+    { path: '403', Component: Error403Page },
+    { path: '404', Component: Error404Page },
+    { path: '500', Component: Error500Page },
     { path: '*', element: <Navigate to="/404" replace /> },
   ]);
 }

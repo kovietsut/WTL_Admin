@@ -1,5 +1,5 @@
 export type TAuthCredential = {
   userId: string;
-  username: string;
+  email: string;
   token: string;
 };
