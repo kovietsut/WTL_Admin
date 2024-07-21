@@ -10,26 +10,18 @@ const Error401Page = (): JSX.Element => {
         <Grid container>
           <Grid item xs={4}></Grid>
           <Grid item xs={4}>
-            <Box  display="flex" alignItems="center">
+            <Box display="flex" alignItems="center">
               <Icon401 />
             </Box>
           </Grid>
           <Grid item xs={4}></Grid>
         </Grid>
-        <Typography variant="h2" 
-        sx={styles.errorTitle}
-        >
+        <Typography variant="h2" sx={styles.errorTitle}>
           401 - Authorization required
         </Typography>
-        <Typography
-        sx={styles.errorParagraph}
-        >
-          Please log in to access this resource.
-        </Typography>
+        <Typography sx={styles.errorParagraph}>Please log in to access this resource.</Typography>
         <Typography>
-          <Button href="/" 
-          sx={styles.errorButton}
-          >
+          <Button href="/" sx={styles.errorButton}>
             Go To Homepage
           </Button>
         </Typography>

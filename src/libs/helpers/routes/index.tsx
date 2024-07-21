@@ -17,7 +17,7 @@ export * from './path';
 
 const Login = Loadable(lazy(() => import('@/pages/Auth')));
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
-const ComponentPage = Loadable(lazy(() => import('@/pages/Component')));
+const User = Loadable(lazy(() => import('@/pages/User')));
 
 // ----------------------------------------------------------------------------------
 
@@ -43,6 +43,7 @@ function Routes() {
       children: [
         { element: <Navigate to={PATH.home} replace />, index: true },
         { path: PATH.home, Component: Dashboard },
+        { path: PATH.user, Component: User },
         // {
         //   path: 'amt',
         //   children: [
