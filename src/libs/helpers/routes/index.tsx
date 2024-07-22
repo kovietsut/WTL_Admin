@@ -17,7 +17,6 @@ export * from './path';
 
 const Login = Loadable(lazy(() => import('@/pages/Auth')));
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
-const ComponentPage = Loadable(lazy(() => import('@/pages/Component')));
 
 // ----------------------------------------------------------------------------------
 
