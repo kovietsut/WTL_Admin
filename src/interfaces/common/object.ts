@@ -1,3 +1,4 @@
+import { AxiosError } from 'axios';
 import { ZodObject } from 'zod';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
@@ -9,3 +10,10 @@ export type TState = {
 };
 
 export default IndexedObject;
+
+export type TValidationError = { name: string; message: string };
+
+export interface TError extends Omit<AxiosError<string, unknown>, 'message'> {
+  message?: string;
+  errors?: TValidationError[];
+}

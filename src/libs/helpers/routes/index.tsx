@@ -11,11 +11,11 @@ import Error401Page from '@/pages/Error/Error401.page';
 import Error404Page from '@/pages/Error/Error404.page';
 import Error403Page from '@/pages/Error/Error403.page';
 import Error500Page from '@/pages/Error/Error500.page';
+import Login from '@/pages/Login';
 export * from './path';
 
 // ----------------------------------------------------------------------------------
 
-const Login = Loadable(lazy(() => import('@/pages/Auth')));
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
 const User = Loadable(lazy(() => import('@/pages/User')));
 

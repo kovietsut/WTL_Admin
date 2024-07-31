@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import getColorPresets, { colorPresets } from '@/utils/getColorPresets';
 import {
   TSettingsStore,

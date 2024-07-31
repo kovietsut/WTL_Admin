@@ -1,51 +1,29 @@
-import { TAuthCredential } from '@/interfaces/auth';
-import { signIn } from '@/services/auth';
+import { TAuthCredential, TAuthState, TAuthStore } from '@/interfaces/auth';
+import axios from '@/utils/axios';
+import { logger } from '@/utils/store.log';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-type TAuthState = {
-  credential: TAuthCredential | null;
-  error: string | null;
-  isLoading: boolean;
-};
-
-type TAuthEvent = {
-  isAuthenticated: () => boolean;
-  signIn: (username: string, password: string) => Promise<TAuthCredential | void>;
-  signOut: () => void;
-  reset: () => void;
-};
-
-type TAuthStore = TAuthState & TAuthEvent;
-
-const initialState: TAuthState = {
+export const initialState: TAuthState = {
   credential: null,
-  error: null,
-  isLoading: false,
 };
 
 const authStore = create<TAuthStore>()(
   persist(
-    (set, get) => ({
+    logger<TAuthStore>((set, get) => ({
       ...initialState,
       isAuthenticated: () => Boolean(get().credential),
-      signIn: async (email: string, password: string) => {
-        const { data: response } = await signIn(email, password);
-        const { isSuccess, data } = response;
-        if (isSuccess && data) {
-          set({ credential: data });
-          return data;
+      setCredential: (value: TAuthCredential) => {
+        if (value?.token) {
+          axios.defaults.headers.common.Authorization = `Bearer ${value.token}`;
+        } else {
+          delete axios.defaults.headers.common.Authorization;
         }
-        if (response.message) {
-          set({ error: response.message });
-        }
+        set({ credential: value });
       },
       reset: () => set({ ...initialState }),
-      signOut: () => {
-        get().reset();
-      },
-    }),
-
+      signOut: () => get().reset(),
+    })),
     {
       name: 'auth',
       storage: createJSONStorage(() => localStorage),
@@ -56,4 +34,4 @@ const authStore = create<TAuthStore>()(
   )
 );
 
-export const useAuth = authStore;
+export default authStore;
