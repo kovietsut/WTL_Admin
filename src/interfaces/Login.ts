@@ -1,10 +1,10 @@
-import { Password, Username } from '@/shared/cmp/validation';
+import { Email, Password } from '@/shared/cmp/validation';
 
 export type LoginFormData = {
-  email: Username;
+  email: Email;
   password: Password;
 };
 
-export type LoginFormProps = LoginFormData & {
-  afterSubmit?: string;
-};
+export type LoginFormProps = LoginFormData;
+
+export type TRequestLogin = LoginFormData;

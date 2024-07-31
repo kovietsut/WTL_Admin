@@ -7,6 +7,8 @@ import './index.css';
 import './locales/i18n';
 import ThemeSettings from './libs/theme/settings/index';
 import { MotionLazyContainer } from './libs/theme/settings/animate';
+import { queryClient } from './utils/reactQuery';
+import { QueryClientProvider } from '@tanstack/react-query';
 
 const rootElement = document.getElementById('root') as HTMLElement;
 
@@ -14,8 +16,8 @@ const root = createRoot(rootElement!);
 
 const scaffold = (Component: React.FC): void => {
   root.render(
-    <React.StrictMode>
-      <HelmetProvider>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
         <MotionLazyContainer>
           <ThemeProvider>
             <ThemeSettings>
@@ -23,8 +25,8 @@ const scaffold = (Component: React.FC): void => {
             </ThemeSettings>
           </ThemeProvider>
         </MotionLazyContainer>
-      </HelmetProvider>
-    </React.StrictMode>
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 

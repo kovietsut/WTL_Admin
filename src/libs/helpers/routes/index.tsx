@@ -11,11 +11,12 @@ import Error401Page from '@/pages/Error/Error401.page';
 import Error404Page from '@/pages/Error/Error404.page';
 import Error403Page from '@/pages/Error/Error403.page';
 import Error500Page from '@/pages/Error/Error500.page';
+import Login from '@/pages/Login';
+import User from '@/pages/User';
 export * from './path';
 
 // ----------------------------------------------------------------------------------
 
-const Login = Loadable(lazy(() => import('@/pages/Auth')));
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
 
 // ----------------------------------------------------------------------------------
@@ -42,6 +43,7 @@ function Routes() {
       children: [
         { element: <Navigate to={PATH.home} replace />, index: true },
         { path: PATH.home, Component: Dashboard },
+        { path: PATH.user, Component: User },
         // {
         //   path: 'amt',
         //   children: [

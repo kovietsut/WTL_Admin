@@ -17,7 +17,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Iconify from '../atoms/Iconify';
 import MenuPopover from '../atoms/MenuPopover';
-import { useAuth } from '@/store/useAuth';
+import useAuth from '@/store/useAuth';
 
 type TOption = {
   id: string;
