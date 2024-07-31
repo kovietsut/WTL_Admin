@@ -1,6 +1,6 @@
-import { Box, Typography, Button, Stack, Tooltip, Grid } from '@mui/material';
+import { Box, Typography, Button, Grid } from '@mui/material';
 import useStyle from './Error.styles';
-import { Icon401 } from './images/Icon401';
+import SVGIconify from '@/components/atoms/SvgIconify';
 
 const Error401Page = (): JSX.Element => {
   const styles = useStyle();
@@ -8,13 +8,13 @@ const Error401Page = (): JSX.Element => {
     <Box sx={styles.errorContainer}>
       <Box>
         <Grid container>
-          <Grid item xs={4}></Grid>
+          <Grid item xs={4} />
           <Grid item xs={4}>
             <Box display="flex" alignItems="center">
-              <Icon401 />
+              <SVGIconify name="Ic401" />
             </Box>
           </Grid>
-          <Grid item xs={4}></Grid>
+          <Grid item xs={4} />
         </Grid>
         <Typography variant="h2" sx={styles.errorTitle}>
           401 - Authorization required

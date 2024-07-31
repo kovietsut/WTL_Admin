@@ -1,13 +1,10 @@
 import { TStyle } from '@/interfaces/common';
-import { Theme } from '@emotion/react';
-import { SxProps, useTheme } from '@mui/material';
 
 // interface TStyle {
 //   [key: string]: SxProps<Theme>;
 // }
 
 const useStyle = (): TStyle => {
-  const theme = useTheme();
   return {
     errorContainer: {
       position: 'relative',
