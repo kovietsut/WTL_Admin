@@ -1,4 +1,4 @@
-export const isDev = import.meta.env.DEV;
+export const isDev = process.env.NODE_ENV === 'development';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const envLog = (...data: any) => {

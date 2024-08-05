@@ -1,6 +1,5 @@
 import Iconify from '@/components/atoms/Iconify';
 import { FormProvider, RHFTextField } from '@/components/atoms/form';
-import { LoginFormProps } from '@/interfaces/login';
 import { PATH } from '@/libs/helpers/routes';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoadingButton } from '@mui/lab';
@@ -10,6 +9,7 @@ import { useForm } from 'react-hook-form';
 import { validationSchema } from '../Login.state';
 import { useLogin } from '@/services/login';
 import useAuth from '@/store/useAuth';
+import { LoginFormProps } from '@/interfaces/login';
 
 const LoginForm = () => {
   const { setCredential } = useAuth();

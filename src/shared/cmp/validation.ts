@@ -1,6 +1,7 @@
 // TODO: intl
 import { z } from 'zod';
 
+const id = z.string().uuid();
 const email = z.string().email();
 const password = z.string().min(8).max(20);
 
@@ -12,3 +13,4 @@ export const Validation = Object.freeze({
   email,
   password,
 });
+export type ID = z.infer<typeof id>;

@@ -9,14 +9,9 @@ import {
   UseQueryOptions,
 } from '@tanstack/react-query';
 import { api } from './api';
+import { TError } from '@/interfaces/common/object';
 
-type QueryKeyT = [string, object | undefined];
-export interface GetInfinitePagesInterface<T> {
-  nextId?: number;
-  previousId?: number;
-  data: T;
-  count: number;
-}
+export type QueryKeyT = [string, object | undefined];
 
 export const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 3, refetchOnWindowFocus: !isDev } },
@@ -73,7 +68,7 @@ const useGenericMutation = <T, S>(
 ) => {
   const queryClient = useQueryClient();
 
-  return useMutation<DataResponse<S>, Error, T | S>({
+  return useMutation<DataResponse<S>, TError, T | S>({
     mutationFn: func,
     onMutate: async (data) => {
       await queryClient.cancelQueries({ queryKey: [url!, params] });

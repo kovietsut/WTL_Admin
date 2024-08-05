@@ -1,16 +1,9 @@
+import { TRequestUser, TUser } from '@/interfaces/user';
 import { BaseSyntheticEvent, useCallback, useMemo, useState } from 'react';
 
-export type User = {
-  userId: number;
-  isEnabled?: boolean;
-  fullName: string;
-  email: string;
-  avatarPath?: string;
-  phoneNumber: string;
-  gender: string;
-  address: string;
-  roleId: number;
-  roleName: string;
+export const requestUsers: TRequestUser = {
+  pageNumber: 1,
+  pageSize: 10,
 };
 
 export const tabs = [
@@ -80,13 +73,13 @@ export const useUserSearch = () => {
   };
 };
 
-export const useUsersIds = (users: User[] = []) => {
+export const useUsersIds = (users: TUser[] = []) => {
   return useMemo(() => {
     return users.map((user) => user.userId);
   }, [users]);
 };
 
-export const lists: User[] = [
+export const lists: TUser[] = [
   {
     userId: 10007,
     isEnabled: true,

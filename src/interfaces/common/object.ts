@@ -6,7 +6,7 @@ type IndexedObject = { [key: string]: any };
 export type ValidationSchema = ZodObject<any>;
 export type TState = {
   error?: string;
-  isLoading: boolean;
+  isPending: boolean;
 };
 
 export default IndexedObject;
