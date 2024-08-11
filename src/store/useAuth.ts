@@ -14,8 +14,8 @@ const authStore = create<TAuthStore>()(
       ...initialState,
       isAuthenticated: () => Boolean(get().credential),
       setCredential: (value: TAuthCredential) => {
-        if (value?.token) {
-          axios.defaults.headers.common.Authorization = `Bearer ${value.token}`;
+        if (value?.data.tokenData.accessToken) {
+          axios.defaults.headers.common.Authorization = `Bearer ${value?.data.tokenData.accessToken}`;
         } else {
           delete axios.defaults.headers.common.Authorization;
         }

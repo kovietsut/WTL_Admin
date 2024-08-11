@@ -1,16 +1,11 @@
-import { Box, Button, Card, Container, Stack, Typography } from '@mui/material';
-import { UserSearch } from './_section/UserSearch';
-import { UserListTable } from './_section/UserListTable';
 import Iconify from '@/components/atoms/Iconify';
-import { useUsersIds, useUserSearch, lists } from './User.state';
-import { useSelection } from '@/libs/hooks/useSelection';
-import { useState } from 'react';
+import { Box, Button, Card, Container, Stack, Typography } from '@mui/material';
+import { ElementRef, useRef, useState } from 'react';
+import { UserListTable } from './_section/UserListTable';
+import { UserSearch } from './_section/UserSearch';
 
 const UserPage = () => {
-  const usersSearch = useUserSearch();
-  const usersIds = useUsersIds(lists);
-  const usersSelection = useSelection(usersIds);
-
+  const tableRef = useRef<ElementRef<typeof UserListTable>>(null);
   const [openPopover, setOpenPopover] = useState<null | HTMLElement>(null);
 
   const handleOpenAction = (event: React.MouseEvent<HTMLElement>) => {
@@ -19,6 +14,11 @@ const UserPage = () => {
 
   const handleCloseAction = () => {
     setOpenPopover(null);
+  };
+
+  const handleChangeKeyword = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    tableRef.current?.setSearchText(event.target.value);
   };
 
   return (
@@ -46,22 +46,12 @@ const UserPage = () => {
               </Stack>
             </Stack>
             <Card>
-              <UserSearch />
+              <UserSearch onChangeKeyword={handleChangeKeyword} />
               <UserListTable
+                ref={tableRef}
                 openPopover={openPopover}
                 onOpenAction={handleOpenAction}
                 onCloseAction={handleCloseAction}
-                count={lists.length}
-                lists={lists}
-                onDeselectAll={usersSelection.handleDeselectAll}
-                onDeselectOne={usersSelection.handleDeselectOne}
-                onPageChange={usersSearch.handlePageChange}
-                onRowsPerPageChange={usersSearch.handleRowsPerPageChange}
-                onSelectAll={usersSelection.handleSelectAll}
-                onSelectOne={usersSelection.handleSelectOne}
-                page={usersSearch.state.page}
-                rowsPerPage={usersSearch.state.rowsPerPage}
-                selected={usersSelection.selected}
               />
             </Card>
           </Stack>

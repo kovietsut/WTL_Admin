@@ -9,14 +9,9 @@ import {
   UseQueryOptions,
 } from '@tanstack/react-query';
 import { api } from './api';
+import { TError } from '@/interfaces/common/object';
 
-type QueryKeyT = [string, object | undefined];
-export interface GetInfinitePagesInterface<T> {
-  nextId?: number;
-  previousId?: number;
-  data: T;
-  count: number;
-}
+export type QueryKeyT = [string, object | undefined];
 
 export const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: 3, refetchOnWindowFocus: !isDev } },
@@ -25,13 +20,11 @@ export const queryClient = new QueryClient({
 const isSearch = (url: string) => url.includes('search');
 export const fetcher = async <T>({
   queryKey,
-  pageParam,
 }: Omit<QueryFunctionContext<QueryKeyT>, 'meta'>): Promise<T> => {
   const [url, params] = queryKey;
   const trigger = isSearch(url) ? api.post<T> : api.get<T>;
   return trigger(url, {
     ...params,
-    page: pageParam,
   }).then((res) => res.data);
 };
 
@@ -73,7 +66,7 @@ const useGenericMutation = <T, S>(
 ) => {
   const queryClient = useQueryClient();
 
-  return useMutation<DataResponse<S>, Error, T | S>({
+  return useMutation<DataResponse<S>, TError, T | S>({
     mutationFn: func,
     onMutate: async (data) => {
       await queryClient.cancelQueries({ queryKey: [url!, params] });

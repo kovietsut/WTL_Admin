@@ -14,6 +14,8 @@ export const defaultSettings: TSettingsState = {
   themeStretch: false,
 };
 
+export const DEBOUNCE_TIME = 500;
+
 export const MAX_PAYLOAD = 100000000;
 // MULTI LANGUAGES
 // Please remove `localStorage` when you change settings.

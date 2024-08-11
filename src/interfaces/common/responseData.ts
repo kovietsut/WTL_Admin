@@ -15,10 +15,5 @@ export interface DataResponse<T = unknown> extends AxiosResponse<T> {
 
 export type PaginationResponse<T> = {
   data: T[];
-  currentPage: number;
-  totalPages: number;
-  totalCount: number;
-  pageSize: number;
-  hasPreviousPage: boolean;
-  hasNextPage: boolean;
+  dataCount: number;
 };
