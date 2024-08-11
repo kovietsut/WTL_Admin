@@ -104,11 +104,6 @@ export const useSections = () => {
               <Iconify width={24} height={24} icon="material-symbols:settings" color="#404958" />
             ),
           },
-          {
-            title: 'Sign Out',
-            path: PATH.logout,
-            icon: <Iconify width={24} height={24} icon="material-symbols:logout" color="#404958" />,
-          },
         ],
       },
     ];
