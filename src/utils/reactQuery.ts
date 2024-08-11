@@ -20,13 +20,11 @@ export const queryClient = new QueryClient({
 const isSearch = (url: string) => url.includes('search');
 export const fetcher = async <T>({
   queryKey,
-  pageParam,
 }: Omit<QueryFunctionContext<QueryKeyT>, 'meta'>): Promise<T> => {
   const [url, params] = queryKey;
   const trigger = isSearch(url) ? api.post<T> : api.get<T>;
   return trigger(url, {
     ...params,
-    page: pageParam,
   }).then((res) => res.data);
 };
 

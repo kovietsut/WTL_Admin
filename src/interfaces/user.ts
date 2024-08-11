@@ -1,3 +1,4 @@
+import { SyntheticEvent } from 'react';
 import { PaginationResponse } from './common/responseData';
 
 export type TUser = {
@@ -22,10 +23,12 @@ export type TRequestUser = {
   roleId?: number;
 };
 
-export type UserStoreState = {
-  users: TUser[];
-  addUser: (user: TUser) => void;
-  updateUser: (user: TUser) => void;
-  removeUser: (userId: number) => void;
-  setUsers: (users: TUser[]) => void;
+export type UserEvent = {
+  currentTab?: string;
 };
+
+export type UserState = {
+  setCurrentTab?: (event: SyntheticEvent, value: string) => void;
+};
+
+export type UserStoreState = UserEvent & UserState;

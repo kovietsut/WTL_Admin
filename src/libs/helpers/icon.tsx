@@ -7,7 +7,7 @@ export const svgSources: { [key: string]: React.ReactElement } = {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)">
+      <g id="SVGRepo_bgCarrier" strokeWidth="0" transform="translate(0,0), scale(1)">
         <rect
           x="-2.4"
           y="-2.4"
@@ -23,7 +23,7 @@ export const svgSources: { [key: string]: React.ReactElement } = {
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke="#030303"
-        stroke-width="2.544"
+        strokeWidth="2.544"
       >
         {' '}
         <path
@@ -57,7 +57,7 @@ export const svgSources: { [key: string]: React.ReactElement } = {
       xmlSpace="preserve"
       stroke="#ff0000"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(0,0), scale(1)">
+      <g id="SVGRepo_bgCarrier" strokeWidth="0" transform="translate(0,0), scale(1)">
         <rect x="0" y="0" width="512.00" height="512.00" rx="256" fill="#ffffff" strokeWidth="0" />
       </g>
       <g
@@ -65,7 +65,7 @@ export const svgSources: { [key: string]: React.ReactElement } = {
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke="#CCCCCC"
-        stroke-width="6.144"
+        strokeWidth="6.144"
       />
       <g id="SVGRepo_iconCarrier">
         {' '}
@@ -92,7 +92,7 @@ export const svgSources: { [key: string]: React.ReactElement } = {
       xmlSpace="preserve"
       stroke="#000000"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0">
+      <g id="SVGRepo_bgCarrier" strokeWidth="0">
         <rect
           x="-152.66"
           y="-152.66"
@@ -108,7 +108,7 @@ export const svgSources: { [key: string]: React.ReactElement } = {
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke="#ffffff"
-        stroke-width="94.45887"
+        strokeWidth="94.45887"
       >
         {' '}
         <g>
@@ -144,7 +144,7 @@ export const svgSources: { [key: string]: React.ReactElement } = {
       xmlSpace="preserve"
       stroke="#ffffff"
     >
-      <g id="SVGRepo_bgCarrier" stroke-width="0">
+      <g id="SVGRepo_bgCarrier" strokeWidth="0">
         <rect x="0" y="0" width="512.00" height="512.00" rx="256" fill="#ff0000" strokeWidth="0" />
       </g>
       <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />

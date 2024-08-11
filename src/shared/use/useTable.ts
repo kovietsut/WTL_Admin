@@ -39,7 +39,7 @@ export default function useTable(props?: Props) {
 
   const [page, setPage] = useState(props?.defaultCurrentPage || 0);
 
-  const [rowsPerPage, setRowsPerPage] = useState(props?.defaultRowsPerPage || 5);
+  const [rowsPerPage, setRowsPerPage] = useState(props?.defaultRowsPerPage || 10);
 
   const [selected, setSelected] = useState<string[]>(props?.defaultSelected || []);
 
@@ -80,6 +80,7 @@ export default function useTable(props?: Props) {
   };
 
   const onChangePage = (event: unknown, newPage: number) => {
+    console.log(newPage);
     setPage(newPage);
   };
 

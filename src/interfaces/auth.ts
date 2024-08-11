@@ -1,7 +1,16 @@
-export type TAuthCredential = {
+type TToken = {
+  accessToken?: string;
+  refreshToken?: string;
+};
+
+type TData = {
   email?: string;
-  token: string;
-  refreshToken: string;
+  fullName?: string;
+  tokenData: TToken;
+};
+
+export type TAuthCredential = {
+  data: TData;
 };
 
 export type TAuthState = {

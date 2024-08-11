@@ -5,6 +5,6 @@ export const Endpoint = {
   user: {
     root: '/user',
     disable: '/user',
-    search: '/user/search',
+    search: '/user/get-list',
   },
 };
