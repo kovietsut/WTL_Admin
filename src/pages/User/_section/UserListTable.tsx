@@ -1,7 +1,6 @@
 import Iconify from '@/components/atoms/Iconify';
 import MenuPopover from '@/components/atoms/MenuPopover';
 import Scrollbar from '@/components/atoms/ScrollBar';
-import LoadingScreen from '@/components/templates/LoadingScreen';
 import { DEBOUNCE_TIME } from '@/config';
 import { useSelection } from '@/libs/hooks/useSelection';
 import Error500Page from '@/pages/Error/Error500.page';
@@ -49,7 +48,7 @@ export const UserListTable = forwardRef<TRef, TProps>(
 
     const debounceSearchText = useDebounce(searchText, DEBOUNCE_TIME);
 
-    const { data, error, isLoading } = useFetchUser({
+    const { data, error } = useFetchUser({
       pageNumber: page + 1,
       pageSize: rowsPerPage,
       searchText: debounceSearchText,
@@ -70,7 +69,6 @@ export const UserListTable = forwardRef<TRef, TProps>(
       setSearchText: (searchText: string) => setSearchText(searchText),
     }));
 
-    if (isLoading) return <LoadingScreen />;
     if (error) return <Error500Page />;
 
     return (
