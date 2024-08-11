@@ -1,30 +1,35 @@
 import Iconify from '@/components/atoms/Iconify';
 import { Box, Button, Card, Container, Stack, Typography } from '@mui/material';
-import { ElementRef, useRef, useState } from 'react';
+import { ElementRef, useRef } from 'react';
+import UserDrawer from './_section/UserDrawer';
 import { UserListTable } from './_section/UserListTable';
 import { UserSearch } from './_section/UserSearch';
+import { useUserStore } from './User.state';
+import { ListContainer } from './User.styles';
 
 const UserPage = () => {
+  const rootRef = useRef(null);
   const tableRef = useRef<ElementRef<typeof UserListTable>>(null);
-  const [openPopover, setOpenPopover] = useState<null | HTMLElement>(null);
-
-  const handleOpenAction = (event: React.MouseEvent<HTMLElement>) => {
-    setOpenPopover(event.currentTarget);
-  };
-
-  const handleCloseAction = () => {
-    setOpenPopover(null);
-  };
+  const drawerRef = useRef<ElementRef<typeof UserDrawer>>(null);
+  const { openDrawer, setOpenDrawer, setDrawerMode } = useUserStore();
 
   const handleChangeKeyword = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     tableRef.current?.setSearchText(event.target.value);
   };
 
+  const handleAddUser = () => {
+    setDrawerMode && setDrawerMode('add');
+    setOpenDrawer && setOpenDrawer(true);
+  };
+
   return (
-    <Box sx={{ mt: 10 }}>
+    <Box
+      sx={{
+        mt: 10,
+      }}
+    >
       <Box
-        component="main"
         sx={{
           flexGrow: 1,
           py: 8,
@@ -40,20 +45,29 @@ const UserPage = () => {
                 <Button
                   startIcon={<Iconify icon="ic:baseline-plus" width={24} height={24} />}
                   variant="contained"
+                  onClick={handleAddUser}
                 >
                   Add
                 </Button>
               </Stack>
             </Stack>
-            <Card>
-              <UserSearch onChangeKeyword={handleChangeKeyword} />
-              <UserListTable
-                ref={tableRef}
-                openPopover={openPopover}
-                onOpenAction={handleOpenAction}
-                onCloseAction={handleCloseAction}
-              />
-            </Card>
+            <Box
+              ref={rootRef}
+              sx={{
+                display: 'flex',
+                flex: '1 1 auto',
+                overflow: 'hidden',
+                position: 'relative',
+              }}
+            >
+              <ListContainer open={openDrawer}>
+                <Card>
+                  <UserSearch onChangeKeyword={handleChangeKeyword} />
+                  <UserListTable ref={tableRef} />
+                </Card>
+              </ListContainer>
+              <UserDrawer ref={drawerRef} container={rootRef.current} />
+            </Box>
           </Stack>
         </Container>
       </Box>

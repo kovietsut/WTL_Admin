@@ -33,6 +33,8 @@ export const useUsersIds = (users: TUser[] = []) => {
 
 const initialState: UserStoreState = {
   currentTab: 'all',
+  openDrawer: false,
+  drawerMode: 'add',
 };
 
 export const useUserStore = create<UserStoreState>((set) => ({
@@ -41,4 +43,9 @@ export const useUserStore = create<UserStoreState>((set) => ({
     event.preventDefault();
     set({ currentTab: value });
   },
+  setOpenDrawer(open) {
+    set({ openDrawer: open });
+  },
+  setDrawerMode: (mode) => set({ drawerMode: mode }),
+  setOpenPopover: (event) => set({ openPopover: event?.currentTarget }),
 }));

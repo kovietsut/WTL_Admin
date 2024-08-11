@@ -25,10 +25,16 @@ export type TRequestUser = {
 
 export type UserEvent = {
   currentTab?: string;
+  openDrawer?: boolean;
+  drawerMode: 'add' | 'edit' | 'detail';
+  openPopover?: HTMLElement;
 };
 
 export type UserState = {
   setCurrentTab?: (event: SyntheticEvent, value: string) => void;
+  setOpenDrawer?: (open: boolean) => void;
+  setDrawerMode?: (mode: 'add' | 'edit' | 'detail') => void;
+  setOpenPopover?: (event: React.MouseEvent<HTMLElement> | null) => void;
 };
 
 export type UserStoreState = UserEvent & UserState;
