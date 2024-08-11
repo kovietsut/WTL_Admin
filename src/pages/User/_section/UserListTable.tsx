@@ -210,26 +210,19 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
                         },
                       }}
                     >
-                      <MenuItem>
-                        <Button
-                          variant="text"
-                          startIcon={<Iconify icon="bx:detail" width={24} height={24} />}
-                          onClick={handleDetailUser}
-                        >
-                          Detail
-                        </Button>
+                      <MenuItem onClick={handleDetailUser}>
+                        <Iconify sx={{ mr: 1 }} icon="bx:detail" width={24} height={24} />
+                        <Typography variant="subtitle2">Detail</Typography>
                       </MenuItem>
                       <Divider sx={{ borderStyle: 'dashed' }} />
-                      <MenuItem>
-                        <Button
-                          variant="text"
-                          startIcon={
-                            <Iconify icon="material-symbols:edit" width={24} height={24} />
-                          }
-                          onClick={handleEditUser}
-                        >
-                          Edit
-                        </Button>
+                      <MenuItem onClick={handleEditUser}>
+                        <Iconify
+                          sx={{ mr: 1 }}
+                          icon="material-symbols:edit"
+                          width={24}
+                          height={24}
+                        />
+                        <Typography variant="subtitle2">Edit</Typography>
                       </MenuItem>
                     </MenuPopover>
                   </TableCell>
