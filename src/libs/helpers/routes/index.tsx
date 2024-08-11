@@ -12,12 +12,12 @@ import Error404Page from '@/pages/Error/Error404.page';
 import Error403Page from '@/pages/Error/Error403.page';
 import Error500Page from '@/pages/Error/Error500.page';
 import Login from '@/pages/Login';
-import User from '@/pages/User';
 export * from './path';
 
 // ----------------------------------------------------------------------------------
 
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
+const User = Loadable(lazy(() => import('@/pages/User')));
 
 // ----------------------------------------------------------------------------------
 
