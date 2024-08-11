@@ -132,7 +132,7 @@ export const UserListTable = forwardRef<TRef, TProps>(
               </TableHead>
             )}
             <TableBody>
-              {lists &&
+              {lists && lists?.length > 0 ? (
                 lists?.map((user) => {
                   const isSelected = usersSelection.selected.includes(user.userId);
                   return (
@@ -224,7 +224,21 @@ export const UserListTable = forwardRef<TRef, TProps>(
                       </TableCell>
                     </TableRow>
                   );
-                })}
+                })
+              ) : (
+                <TableRow hover>
+                  <TableCell colSpan={7}>
+                    <Box
+                      sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                      }}
+                    >
+                      <Typography color="textSecondary">There are no data</Typography>
+                    </Box>
+                  </TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </Scrollbar>
