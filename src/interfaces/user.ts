@@ -1,6 +1,7 @@
 import { SyntheticEvent } from 'react';
 import { PaginationResponse } from './common/responseData';
 
+//#region Response Data / List Data
 export type TUser = {
   userId: number;
   isEnabled: boolean;
@@ -12,29 +13,52 @@ export type TUser = {
   address: string;
   roleId: number;
   roleName: string;
+  createdAt?: string;
+  modifiedAt?: string;
+};
+
+export type TUserWithId = Omit<TUser, 'userId'> & { id: number };
+
+export type TResponseUser = {
+  data?: TUserWithId;
 };
 
 export type TResponseUserList = PaginationResponse<TUser>;
 
-export type TRequestUser = {
+export type TUserListParams = {
   pageNumber?: number;
   pageSize?: number;
   searchText?: string;
   roleId?: number;
 };
+//#endregion
 
-export type UserEvent = {
+//#region State
+export type UserState = {
   currentTab?: string;
   openDrawer?: boolean;
   drawerMode: 'add' | 'edit' | 'detail';
   openPopover?: HTMLElement;
+  userId?: number;
 };
 
-export type UserState = {
+export type UserEvent = {
   setCurrentTab?: (event: SyntheticEvent, value: string) => void;
   setOpenDrawer?: (open: boolean) => void;
   setDrawerMode?: (mode: 'add' | 'edit' | 'detail') => void;
   setOpenPopover?: (event: React.MouseEvent<HTMLElement> | null) => void;
+  setUserId?: (userId: number) => void;
 };
 
-export type UserStoreState = UserEvent & UserState;
+export type UserStoreState = UserState & UserEvent;
+//#endregion
+
+//#region Request / Response Update
+export type TRequestUserCreate = Omit<TUser, 'userId' | 'isEnabled' | 'roleName'> & {};
+export type TRequestUserUpdate = {};
+export type TRequestUserDelete = {};
+
+export type TResponseUserCreate = {};
+export type TResponseUserUpdate = {};
+export type TResponseUserDelete = {};
+//#endregion

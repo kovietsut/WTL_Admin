@@ -13,3 +13,18 @@ export const convertTabValueToNumber = (tabValue: string | null | undefined) => 
       return null;
   }
 };
+
+export const convertRoleNumberToRoleName = (roleId: number) => {
+  switch (roleId) {
+    case 1:
+      return 'Admin';
+    case 2:
+      return 'Author';
+    case 3:
+      return 'Reader';
+    case 4:
+      return 'Translator';
+    default:
+      return undefined;
+  }
+};

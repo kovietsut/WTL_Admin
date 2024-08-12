@@ -40,6 +40,7 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
     setOpenPopover,
     setOpenDrawer,
     setDrawerMode,
+    setUserId,
   } = useUserStore();
 
   const { rowsPerPage, page, onChangePage, onChangeRowsPerPage } = useTable();
@@ -63,16 +64,18 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
   const selectedAll = lists && lists.length > 0 && usersSelection.selected.length === lists.length;
   const enableBulkActions = usersSelection.selected.length > 0;
 
-  const handleEditUser = () => {
+  const handleEditUser = (userId: number) => {
     setDrawerMode && setDrawerMode('edit');
     setOpenDrawer && setOpenDrawer(true);
     setOpenPopover && setOpenPopover(null);
+    setUserId && userId && setUserId(userId);
   };
 
-  const handleDetailUser = () => {
+  const handleDetailUser = (userId: number) => {
     setDrawerMode && setDrawerMode('detail');
     setOpenDrawer && setOpenDrawer(true);
     setOpenPopover && setOpenPopover(null);
+    setUserId && userId && setUserId(userId);
   };
 
   useImperativeHandle(ref, () => ({
@@ -210,12 +213,12 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
                         },
                       }}
                     >
-                      <MenuItem onClick={handleDetailUser}>
+                      <MenuItem onClick={() => handleDetailUser(user.userId)}>
                         <Iconify sx={{ mr: 1 }} icon="bx:detail" width={24} height={24} />
                         <Typography variant="subtitle2">Detail</Typography>
                       </MenuItem>
                       <Divider sx={{ borderStyle: 'dashed' }} />
-                      <MenuItem onClick={handleEditUser}>
+                      <MenuItem onClick={() => handleEditUser(user.userId)}>
                         <Iconify
                           sx={{ mr: 1 }}
                           icon="material-symbols:edit"

@@ -48,4 +48,5 @@ export const useUserStore = create<UserStoreState>((set) => ({
   },
   setDrawerMode: (mode) => set({ drawerMode: mode }),
   setOpenPopover: (event) => set({ openPopover: event?.currentTarget }),
+  setUserId: (userId) => set({ userId: userId }),
 }));
