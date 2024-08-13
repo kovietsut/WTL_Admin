@@ -25,7 +25,7 @@ import {
   Typography,
 } from '@mui/material';
 import { forwardRef, useImperativeHandle, useState } from 'react';
-import { useUsersIds, useUserStore } from '../User.state';
+import { useUsersIds, useUserStore } from '../../User.state';
 
 type TProps = {};
 

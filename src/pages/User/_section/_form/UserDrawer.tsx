@@ -1,7 +1,7 @@
 import Iconify from '@/components/atoms/Iconify';
 import { Box, Drawer, IconButton, Stack, Typography } from '@mui/material';
 import { forwardRef, useImperativeHandle } from 'react';
-import { useUserStore } from '../User.state';
+import { useUserStore } from '../../User.state';
 import { renderForm } from './UserDrawerForm';
 
 type Props = {
