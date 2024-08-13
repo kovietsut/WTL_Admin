@@ -1,9 +1,9 @@
 import Iconify from '@/components/atoms/Iconify';
 import { Box, Button, Card, Container, Stack, Typography } from '@mui/material';
 import { ElementRef, useRef } from 'react';
-import UserDrawer from './_section/UserDrawer';
-import { UserListTable } from './_section/UserListTable';
-import { UserSearch } from './_section/UserSearch';
+import UserDrawer from './_section/_form/UserDrawer';
+import { UserListTable } from './_section/_list/UserListTable';
+import { UserSearch } from './_section/_list/UserSearch';
 import { useUserStore } from './User.state';
 import { ListContainer } from './User.styles';
 

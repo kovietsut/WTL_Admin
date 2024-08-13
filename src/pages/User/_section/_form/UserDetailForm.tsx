@@ -8,7 +8,7 @@ import { convertRoleNumberToRoleName } from '@/utils/utils';
 import { Avatar, Button, Stack, Typography } from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { memo } from 'react';
-import { useUserStore } from '../User.state';
+import { useUserStore } from '../../User.state';
 
 const UserDetailForm = () => {
   const lgUp = useResponsive('up', 'lg');
