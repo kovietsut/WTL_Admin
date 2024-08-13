@@ -64,18 +64,16 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
   const selectedAll = lists && lists.length > 0 && usersSelection.selected.length === lists.length;
   const enableBulkActions = usersSelection.selected.length > 0;
 
-  const handleEditUser = (userId: number) => {
+  const handleEditUser = () => {
     setDrawerMode && setDrawerMode('edit');
     setOpenDrawer && setOpenDrawer(true);
     setOpenPopover && setOpenPopover(null);
-    setUserId && userId && setUserId(userId);
   };
 
-  const handleDetailUser = (userId: number) => {
+  const handleDetailUser = () => {
     setDrawerMode && setDrawerMode('detail');
     setOpenDrawer && setOpenDrawer(true);
     setOpenPopover && setOpenPopover(null);
-    setUserId && userId && setUserId(userId);
   };
 
   useImperativeHandle(ref, () => ({
@@ -188,9 +186,10 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
                   <TableCell align="right">
                     <IconButton
                       href="#"
-                      onClick={(event: React.MouseEvent<HTMLElement>) =>
-                        setOpenPopover && setOpenPopover(event)
-                      }
+                      onClick={(event: React.MouseEvent<HTMLElement>) => {
+                        setOpenPopover && setOpenPopover(event);
+                        setUserId && user.userId && setUserId(user.userId);
+                      }}
                     >
                       <Iconify icon="ri:more-fill" width={24} height={24} />
                     </IconButton>
@@ -213,12 +212,12 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
                         },
                       }}
                     >
-                      <MenuItem onClick={() => handleDetailUser(user.userId)}>
+                      <MenuItem onClick={() => handleDetailUser()}>
                         <Iconify sx={{ mr: 1 }} icon="bx:detail" width={24} height={24} />
                         <Typography variant="subtitle2">Detail</Typography>
                       </MenuItem>
                       <Divider sx={{ borderStyle: 'dashed' }} />
-                      <MenuItem onClick={() => handleEditUser(user.userId)}>
+                      <MenuItem onClick={() => handleEditUser()}>
                         <Iconify
                           sx={{ mr: 1 }}
                           icon="material-symbols:edit"
