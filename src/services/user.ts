@@ -22,7 +22,7 @@ export const useFetchUserById = (id?: number) => {
 export const useUserCreate = () =>
   usePost<TRequestUserCreate, TResponseUserCreate>(Endpoint.user.root);
 
-export const useUserUpdate = (id: number) =>
+export const useUserUpdate = (id?: number) =>
   useUpdate<TRequestUserUpdate, TResponseUserUpdate>(`${Endpoint.user.root}/${id}`);
 
 export const useUserDelete = () => useDelete<TRequestUserDelete>(Endpoint.user.disable);

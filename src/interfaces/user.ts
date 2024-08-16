@@ -5,14 +5,14 @@ import { PaginationResponse } from './common/responseData';
 export type TUser = {
   userId: number;
   isEnabled: boolean;
-  fullName: string;
-  email: string;
-  phoneNumber: string;
-  avatarPath: string;
-  gender: string;
-  address: string;
-  roleId: number;
-  roleName: string;
+  fullName?: string;
+  email?: string;
+  phoneNumber?: string;
+  avatarPath?: string;
+  gender?: string;
+  address?: string;
+  roleId?: number;
+  roleName?: string;
   createdAt?: string;
   modifiedAt?: string;
 };
@@ -38,16 +38,16 @@ export type UserState = {
   currentTab?: string;
   openDrawer?: boolean;
   drawerMode: 'add' | 'edit' | 'detail';
-  openPopover?: HTMLElement;
   userId?: number;
+  user?: TUserWithId;
 };
 
 export type UserEvent = {
   setCurrentTab?: (event: SyntheticEvent, value: string) => void;
   setOpenDrawer?: (open: boolean) => void;
   setDrawerMode?: (mode: 'add' | 'edit' | 'detail') => void;
-  setOpenPopover?: (event: React.MouseEvent<HTMLElement> | null) => void;
   setUserId?: (userId: number) => void;
+  setUser?: (user: TUserWithId) => void;
 };
 
 export type UserStoreState = UserState & UserEvent;
