@@ -4,7 +4,7 @@ export const Endpoint = {
   },
   user: {
     root: '/user',
-    disable: '/user',
+    deleteList: '/user',
     search: '/user/get-list',
   },
 };

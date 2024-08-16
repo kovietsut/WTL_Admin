@@ -95,6 +95,18 @@ export const useDelete = <T>(
 ) =>
   useGenericMutation<T, string | number>((id) => api.delete(`${url}/${id}`), url, params, updater);
 
+export const useDeleteList = <T>(
+  url: string,
+  params?: object,
+  updater?: (oldData: T, id: string | number) => T
+) =>
+  useGenericMutation<T, string | number>(
+    (id) => api.delete(`${url}?ids=${id}`),
+    url,
+    params,
+    updater
+  );
+
 export const usePost = <T, S>(
   url: string,
   params?: object,
