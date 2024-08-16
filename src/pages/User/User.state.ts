@@ -89,9 +89,23 @@ export const useUserStore = create<UserStoreState>((set) => ({
 
 export const validationCreateUserSchema: ValidationSchema = z.object({
   email: z.string().min(1, 'Email is required'),
+  password: z.string().min(8, 'Password is required'),
   address: z.string().min(1, 'Address is required'),
   fullName: z.string().min(1, 'Full Name is required'),
   gender: z.string().min(1, 'Gender is required'),
-  phoneNumber: z.string().min(1, 'Phone Number is required'),
+  phoneNumber: z.string().regex(/^0\d{9}$/, {
+    message: 'Invalid Vietnam phone number. It should be 10 digits starting with a 0.',
+  }),
+  roleId: z.number().positive('Number must be positive'),
+});
+
+export const validationUpdateUserSchema: ValidationSchema = z.object({
+  email: z.string().min(1, 'Email is required'),
+  address: z.string().min(1, 'Address is required'),
+  fullName: z.string().min(1, 'Full Name is required'),
+  gender: z.string().min(1, 'Gender is required'),
+  phoneNumber: z.string().regex(/^0\d{9}$/, {
+    message: 'Invalid Vietnam phone number. It should be 10 digits starting with a 0.',
+  }),
   roleId: z.number().positive('Number must be positive'),
 });
