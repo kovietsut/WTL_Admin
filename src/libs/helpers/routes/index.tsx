@@ -20,6 +20,7 @@ const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
 const User = Loadable(lazy(() => import('@/pages/User')));
 const Comic = Loadable(lazy(() => import('@/pages/Comic')));
 const Profile = Loadable(lazy(() => import('@/pages/Profile')));
+const Genre = Loadable(lazy(() => import('@/pages/Genre')));
 
 // ----------------------------------------------------------------------------------
 
@@ -48,6 +49,7 @@ function Routes() {
         { path: PATH.user, Component: User },
         { path: PATH.comics, Component: Comic },
         { path: PATH.profile, Component: Profile },
+        { path: PATH.genres, Component: Genre },
         // {
         //   path: 'amt',
         //   children: [

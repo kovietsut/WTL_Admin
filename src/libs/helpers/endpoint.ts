@@ -7,4 +7,9 @@ export const Endpoint = {
     deleteList: '/user',
     search: '/user/get-list',
   },
+  genre: {
+    root: '/genre',
+    deleteList: '/genre',
+    search: 'genre/get-list'
+  }
 };

@@ -3,7 +3,7 @@ import { TSettingsState } from './libs/theme/type';
 
 export const APP_NAME = 'WTL';
 
-export const BASE_URL = import.meta.env.HOST_API || 'http://localhost:6001/api';
+export const BASE_URL = import.meta.env.HOST_API || 'http://localhost:6002/api';
 
 export const defaultSettings: TSettingsState = {
   themeMode: 'light',
