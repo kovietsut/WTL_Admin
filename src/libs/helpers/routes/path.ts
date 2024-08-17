@@ -15,4 +15,5 @@ export const PATH = {
   settings: '/app/settings',
   logout: '/app/logout',
   docs: '/app/docs',
+  profile: '/app/profile'
 };
