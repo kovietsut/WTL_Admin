@@ -1,11 +1,11 @@
 import Iconify from '@/components/atoms/Iconify';
 import { DEBOUNCE_TIME } from '@/config';
 import { useSelection } from '@/libs/hooks/useSelection';
-import { useFetchUser } from '@/services/user';
+import { useFetchUser, useUserDeleteList } from '@/services/user';
 import useDebounce from '@/shared/use/useDebounce';
 import useTable from '@/shared/use/useTable';
 import { getInitials } from '@/utils/getInitials';
-import { convertTabValueToNumber } from '@/utils/utils';
+import { arrayToString, convertTabValueToNumber } from '@/utils/utils';
 import {
   Avatar,
   Box,
@@ -23,6 +23,9 @@ import {
 } from '@mui/material';
 import { forwardRef, useImperativeHandle, useState } from 'react';
 import { useUsersIds, useUserStore } from '../../User.state';
+import { Endpoint } from '@/libs/helpers/endpoint';
+import { queryClient } from '@/utils/reactQuery';
+import toast from 'react-hot-toast';
 
 type TProps = {};
 
@@ -63,6 +66,17 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
   useImperativeHandle(ref, () => ({
     setSearchText: (searchText: string) => setSearchText(searchText),
   }));
+
+  const { mutateAsync: deleteUser } = useUserDeleteList(arrayToString(usersSelection.selected));
+
+  const onDelete = async () => {
+    const result = await deleteUser(arrayToString(usersSelection.selected));
+    if (result.status === 200) {
+      toast.success('Delete Success');
+    }
+    usersSelection.handleDeselectAll?.();
+    queryClient.invalidateQueries({ queryKey: [Endpoint.user.search] });
+  };
 
   if (error)
     return (
@@ -108,7 +122,7 @@ export const UserListTable = forwardRef<TRef, TProps>((_, ref) => {
                 }
               }}
             />
-            <Button color="error" size="small">
+            <Button color="error" size="small" onClick={onDelete}>
               Delete
             </Button>
           </Stack>

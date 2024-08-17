@@ -28,3 +28,7 @@ export const convertRoleNumberToRoleName = (roleId: number) => {
       return undefined;
   }
 };
+
+export const arrayToString = (arr: number[]): string => {
+  return arr.join(',');
+};

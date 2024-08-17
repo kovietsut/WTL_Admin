@@ -1,15 +1,15 @@
 import {
-  TUserListParams,
-  TResponseUserList,
   TRequestUserCreate,
-  TResponseUserCreate,
-  TResponseUserUpdate,
-  TRequestUserUpdate,
   TRequestUserDelete,
+  TRequestUserUpdate,
   TResponseUser,
+  TResponseUserCreate,
+  TResponseUserList,
+  TResponseUserUpdate,
+  TUserListParams,
 } from '@/interfaces/user';
 import { Endpoint } from '@/libs/helpers/endpoint';
-import { useDelete, useFetch, usePost, useUpdate } from '@/utils/reactQuery';
+import { useDeleteList, useFetch, usePost, useUpdate } from '@/utils/reactQuery';
 
 export const useFetchUser = (params: TUserListParams) => {
   return useFetch<TResponseUserList>(Endpoint.user.search, params);
@@ -25,4 +25,5 @@ export const useUserCreate = () =>
 export const useUserUpdate = (id?: number) =>
   useUpdate<TRequestUserUpdate, TResponseUserUpdate>(`${Endpoint.user.root}/${id}`);
 
-export const useUserDelete = () => useDelete<TRequestUserDelete>(Endpoint.user.disable);
+export const useUserDeleteList = (ids: string) =>
+  useDeleteList<TRequestUserDelete>(Endpoint.user.deleteList);

@@ -7,6 +7,7 @@ export type TUser = {
   isEnabled: boolean;
   fullName?: string;
   email?: string;
+  password?: string;
   phoneNumber?: string;
   avatarPath?: string;
   gender?: string;
@@ -55,7 +56,7 @@ export type UserStoreState = UserState & UserEvent;
 
 //#region Request / Response Update
 export type TRequestUserCreate = Omit<TUser, 'userId' | 'isEnabled' | 'roleName'> & {};
-export type TRequestUserUpdate = {};
+export type TRequestUserUpdate = Omit<TUser, 'userId' | 'isEnabled' | 'roleName'> & {};
 export type TRequestUserDelete = {};
 
 export type TResponseUserCreate = {};

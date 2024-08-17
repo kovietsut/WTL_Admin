@@ -1,12 +1,12 @@
 import { FormProvider, RHFTextField } from '@/components/atoms/form';
-import { TRequestUserCreate } from '@/interfaces/user';
+import { TRequestUserUpdate } from '@/interfaces/user';
 import { useUserUpdate } from '@/services/user';
 import { zodResolver } from '@hookform/resolvers/zod';
 import LoadingButton from '@mui/lab/LoadingButton';
 import { Button, FormControl, MenuItem, Stack, Typography } from '@mui/material';
 import { memo, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import { genders, roles, useUserStore, validationCreateUserSchema } from '../../User.state';
+import { genders, roles, useUserStore, validationUpdateUserSchema } from '../../User.state';
 import { queryClient } from '@/utils/reactQuery';
 import { Endpoint } from '@/libs/helpers/endpoint';
 import toast from 'react-hot-toast';
@@ -15,7 +15,7 @@ import RHFSelect from '@/components/atoms/form/RHFSelect';
 const UserEditForm = memo(() => {
   const { userId, user, setDrawerMode } = useUserStore();
 
-  const defaultValues = useMemo<TRequestUserCreate>(
+  const defaultValues = useMemo<TRequestUserUpdate>(
     () => ({
       email: user?.email,
       address: user?.address,
@@ -29,14 +29,14 @@ const UserEditForm = memo(() => {
 
   const { isPending, mutateAsync: update, error } = useUserUpdate(userId);
 
-  const methods = useForm<TRequestUserCreate>({
-    resolver: zodResolver(validationCreateUserSchema),
+  const methods = useForm<TRequestUserUpdate>({
+    resolver: zodResolver(validationUpdateUserSchema),
     defaultValues,
   });
 
   const { handleSubmit } = methods;
 
-  const onSubmit = async (data: TRequestUserCreate) => {
+  const onSubmit = async (data: TRequestUserUpdate) => {
     try {
       const result = await update(data);
       if (result.status === 200) {
