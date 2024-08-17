@@ -55,28 +55,9 @@ export const useSections = () => {
             icon: <Iconify width={24} height={24} icon="mingcute:book-3-fill" color="#404958" />,
           },
           {
-            title: 'Translator',
-            path: PATH.translator,
-            icon: (
-              <Iconify
-                width={24}
-                height={24}
-                icon="carbon:ibm-watson-language-translator"
-                color="#404958"
-              />
-            ),
-          },
-          {
-            title: 'User',
+            title: 'Users',
             path: PATH.user,
             icon: <Iconify width={24} height={24} icon="ph:user-fill" color="#404958" />,
-          },
-          {
-            title: 'Author',
-            path: PATH.author,
-            icon: (
-              <Iconify width={24} height={24} icon="material-symbols-light:draw" color="#404958" />
-            ),
           },
           {
             title: 'Genres',

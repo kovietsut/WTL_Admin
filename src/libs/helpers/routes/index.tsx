@@ -18,6 +18,7 @@ export * from './path';
 
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
 const User = Loadable(lazy(() => import('@/pages/User')));
+const Comic = Loadable(lazy(() => import('@/pages/Comic')));
 
 // ----------------------------------------------------------------------------------
 
@@ -44,6 +45,7 @@ function Routes() {
         { element: <Navigate to={PATH.home} replace />, index: true },
         { path: PATH.home, Component: Dashboard },
         { path: PATH.user, Component: User },
+        { path: PATH.comics, Component: Comic },
         // {
         //   path: 'amt',
         //   children: [
