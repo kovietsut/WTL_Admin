@@ -25,7 +25,7 @@ type TOption = {
   link?: string;
 };
 
-const SETTING_OPTIONS: TOption[] = [{ id: '1', value: 'Profile' }];
+const SETTING_OPTIONS: TOption[] = [{ id: '1', value: 'Profile', link: '/app/profile' }];
 
 type Props = {
   variant: 'detail' | 'dense';
@@ -63,6 +63,7 @@ const Appbar: React.FC<Props> = ({ variant }) => {
     signOut();
     navigate(PATH.auth.login);
   };
+
 
   return (
     <AppBar
