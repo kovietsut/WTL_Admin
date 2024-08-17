@@ -1,4 +1,3 @@
-import { SyntheticEvent } from 'react';
 import { PaginationResponse } from './common/responseData';
 
 //#region Response Data / List Data
@@ -32,7 +31,6 @@ export type GenreState = {
 };
 
 export type GenreEvent = {
-  setCurrentTab?: (event: SyntheticEvent, value: string) => void;
   setOpenDrawer?: (open: boolean) => void;
   setDrawerMode?: (mode: 'add' | 'edit' | 'detail') => void;
   setGenreId?: (genreId: number) => void;

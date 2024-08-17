@@ -1,7 +1,6 @@
 import Iconify from '@/components/atoms/Iconify';
-import { Divider, InputAdornment, OutlinedInput, Stack, Tab, Tabs } from '@mui/material';
+import { InputAdornment, OutlinedInput, Stack } from '@mui/material';
 import { useRef } from 'react';
-import { useGenreStore } from '../../Genre.state';
 
 type Props = {
   onChangeKeyword: (event: React.ChangeEvent<HTMLInputElement>) => void;

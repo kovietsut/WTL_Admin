@@ -64,10 +64,10 @@ export const GenreListTable = forwardRef<TRef, TProps>((_, ref) => {
     setSearchText: (searchText: string) => setSearchText(searchText),
   }));
 
-  const { mutateAsync: deleteUser } = useGenreDeleteList(arrayToString(genresSelection.selected));
+  const { mutateAsync: deleteGenre } = useGenreDeleteList(arrayToString(genresSelection.selected));
 
   const onDelete = async () => {
-    const result = await deleteUser(arrayToString(genresSelection.selected));
+    const result = await deleteGenre(arrayToString(genresSelection.selected));
     if (result.status === 200) {
       toast.success('Delete Success');
     }

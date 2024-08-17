@@ -1,6 +1,5 @@
 import { ValidationSchema } from '@/interfaces/common/object';
 import { GenreStoreState, TGenre } from '@/interfaces/genre';
-import { UserStoreState } from '@/interfaces/user';
 import {  useMemo } from 'react';
 import { z } from 'zod';
 import { create } from 'zustand';
@@ -11,8 +10,7 @@ export const useGenresIds = (genres: TGenre[] = []) => {
   }, [genres]);
 };
 
-const initialState: UserStoreState = {
-  currentTab: 'all',
+const initialState: GenreStoreState = {
   openDrawer: false,
   drawerMode: 'add',
 };

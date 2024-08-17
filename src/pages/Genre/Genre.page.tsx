@@ -5,7 +5,7 @@ import GenreDrawer from './_section/_form/GenreDrawer';
 import { GenreListTable } from './_section/_list/GenreListTable';
 import { GenreSearch } from './_section/_list/GenreSearch';
 import { useGenreStore } from './Genre.state';
-import { ListContainer } from './Genre.style';
+import { ListContainer } from './Genre.styles';
 
 const GenrePage = () => {
   const rootRef = useRef(null);
