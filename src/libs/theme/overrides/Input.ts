@@ -12,7 +12,7 @@ export default function Input(theme: Theme) {
     },
     MuiInputBase: {
       defaultProps: {
-        size: 'small',
+        size: 'medium',
       },
       styleOverrides: {
         root: {
