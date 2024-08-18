@@ -12,13 +12,14 @@ import Error404Page from '@/pages/Error/Error404.page';
 import Error403Page from '@/pages/Error/Error403.page';
 import Error500Page from '@/pages/Error/Error500.page';
 import Login from '@/pages/Login';
+import Comic from '@/pages/Comic';
+import ComicNewForm from '@/pages/Comic/_section/_form/_add/ComicNewForm';
 export * from './path';
 
 // ----------------------------------------------------------------------------------
 
 const Dashboard = Loadable(lazy(() => import('@/pages/Dashboard')));
 const User = Loadable(lazy(() => import('@/pages/User')));
-const Comic = Loadable(lazy(() => import('@/pages/Comic')));
 const Profile = Loadable(lazy(() => import('@/pages/Profile')));
 const Genre = Loadable(lazy(() => import('@/pages/Genre')));
 
@@ -47,15 +48,23 @@ function Routes() {
         { element: <Navigate to={PATH.home} replace />, index: true },
         { path: PATH.home, Component: Dashboard },
         { path: PATH.user, Component: User },
-        { path: PATH.comics, Component: Comic },
         { path: PATH.profile, Component: Profile },
         { path: PATH.genres, Component: Genre },
+        {
+          path: 'comics',
+          children: [
+            { element: <Navigate to={PATH.comics.root} replace />, index: true },
+            { path: 'list', Component: Comic },
+            { path: 'new', Component: ComicNewForm },
+          ],
+        },
         // {
-        //   path: 'amt',
+        //   path: 'item',
+        //   element: VersionOutlet,
         //   children: [
-        //     { element: <Navigate to={PATH.armorType.list} replace />, index: true },
-        //     { path: 'list', Component: ArmorTypeList },
-        //     { path: ':id', Component: Dashboard },
+        //     { element: <Navigate to={PATH.item.list} replace />, index: true },
+        //     { path: 'list', Component: ItemList },
+        //     { path: 'new', Component: ItemCreate },
         //   ],
         // },
       ],

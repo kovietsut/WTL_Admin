@@ -3,8 +3,7 @@ import { Manga } from './_section/_list/ComicList';
 export const mangaData: Manga[] = [
   {
     id: 1,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 1',
     preface: 'This is a short description of Manga 1.',
     authorName: 'Author 1',
@@ -15,8 +14,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 2,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 2',
     preface: 'This is a short description of Manga 2.',
     authorName: 'Author 2',
@@ -27,8 +25,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 3,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 3',
     preface: 'This is a short description of Manga 3.',
     authorName: 'Author 3',
@@ -39,8 +36,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 4,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 4',
     preface: 'This is a short description of Manga 4.',
     authorName: 'Author 4',
@@ -51,8 +47,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 5,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 5',
     preface: 'This is a short description of Manga 5.',
     authorName: 'Author 5',
@@ -63,8 +58,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 6,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 6',
     preface: 'This is a short description of Manga 6.',
     authorName: 'Author 6',
@@ -75,8 +69,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 7,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 6',
     preface: 'This is a short description of Manga 6.',
     authorName: 'Author 6',
@@ -87,8 +80,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 8,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 6',
     preface: 'This is a short description of Manga 6.',
     authorName: 'Author 6',
@@ -99,8 +91,7 @@ export const mangaData: Manga[] = [
   },
   {
     id: 9,
-    coverImage:
-      'https://cdn.discordapp.com/attachments/1235050448998633534/1274297480707838035/image_431.png?ex=66c1bd82&is=66c06c02&hm=954ab21c803072f2bfc247d2217c92f2a211ae45e02a537d5b0fdd9c17e35503&',
+    coverImage: '/assets/sample.png',
     name: 'Manga 6',
     preface: 'This is a short description of Manga 6.',
     authorName: 'Author 6',

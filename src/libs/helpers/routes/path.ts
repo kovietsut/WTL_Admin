@@ -5,7 +5,11 @@ export const PATH = {
   component: '/component',
   notFound: '/404',
   home: '/app/home',
-  comics: '/app/comics',
+  comics: {
+    root: '/app/comics',
+    list: '/app/comics/list',
+    new: '/app/comics/new',
+  },
   novel: '/app/novel',
   translator: '/app/translator',
   user: '/app/user',
@@ -15,5 +19,5 @@ export const PATH = {
   settings: '/app/settings',
   logout: '/app/logout',
   docs: '/app/docs',
-  profile: '/app/profile'
+  profile: '/app/profile',
 };

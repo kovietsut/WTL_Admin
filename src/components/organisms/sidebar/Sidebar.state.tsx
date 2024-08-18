@@ -46,13 +46,8 @@ export const useSections = () => {
           },
           {
             title: 'Comics',
-            path: PATH.comics,
+            path: PATH.comics.list,
             icon: <Iconify width={24} height={24} icon="ri:book-fill" color="#404958" />,
-          },
-          {
-            title: 'Novel',
-            path: PATH.novel,
-            icon: <Iconify width={24} height={24} icon="mingcute:book-3-fill" color="#404958" />,
           },
           {
             title: 'Users',

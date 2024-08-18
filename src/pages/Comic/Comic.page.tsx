@@ -1,6 +1,7 @@
 import { Box, Button, Container, Divider, Typography } from '@mui/material';
 import ComicList from './_section/_list/ComicList';
 import { ComicSearch } from './_section/_list/ComicSearch';
+import { PATH } from '@/libs/helpers/routes';
 
 const ComicPage = () => {
   return (
@@ -31,7 +32,7 @@ const ComicPage = () => {
             </Typography>
           </Box>
           <Box>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="primary" href={PATH.comics.new}>
               Add New
             </Button>
           </Box>
