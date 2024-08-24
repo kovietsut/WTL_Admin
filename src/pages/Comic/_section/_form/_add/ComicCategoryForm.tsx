@@ -1,39 +1,25 @@
 import Iconify from '@/components/atoms/Iconify';
+import { categoryOptions } from '@/pages/Comic/Comic.state';
 import { Button, Card, Radio, Stack, Typography } from '@mui/material';
 import { useCallback, useState } from 'react';
-
-interface CategoryOption {
-  description: string;
-  title: string;
-  value: string;
-}
+import { useFormContext } from 'react-hook-form';
 
 interface ComicCategoryFormProps {
   onNext: () => void;
   [key: string]: unknown;
 }
 
-const categoryOptions: CategoryOption[] = [
-  {
-    description: 'Engaging long-form stories with detailed narratives and character development.',
-    title: 'Novel',
-    value: 'novel',
-  },
-  {
-    description:
-      'Visual storytelling with rich illustrations, often serialized and quick to consume.',
-    title: 'Manga',
-    value: 'manga',
-  },
-];
+const ComicCategoryForm = ({ onNext, ...other }: ComicCategoryFormProps) => {
+  const { setValue } = useFormContext();
+  const [category, setCategory] = useState<string>(categoryOptions[0].value);
 
-const ComicCategoryForm: React.FC<ComicCategoryFormProps> = (props) => {
-  const { onNext, ...other } = props;
-  const [category, setCategory] = useState<string>(categoryOptions[1].value);
-
-  const handleCategoryChange = useCallback((category: string) => {
-    setCategory(category);
-  }, []);
+  const handleCategoryChange = useCallback(
+    (category: string) => {
+      setCategory(category);
+      setValue('type', category);
+    },
+    [setValue]
+  );
 
   return (
     <Stack spacing={3} {...other}>

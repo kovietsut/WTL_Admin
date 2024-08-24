@@ -1,3 +1,6 @@
+import { TGenre } from '@/interfaces/genre';
+import { ELanguage } from '@/libs/helpers/enums';
+import { z } from 'zod';
 import { Manga } from './_section/_list/ComicList';
 
 export const mangaData: Manga[] = [
@@ -142,3 +145,63 @@ export const genres = [
     label: 'QQQ',
   },
 ];
+
+interface CategoryOption {
+  description: string;
+  title: string;
+  value: string;
+}
+
+export const categoryOptions: CategoryOption[] = [
+  {
+    description: 'Engaging long-form stories with detailed narratives and character development.',
+    title: 'Novel',
+    value: 'novel',
+  },
+  {
+    description:
+      'Visual storytelling with rich illustrations, often serialized and quick to consume.',
+    title: 'Manga',
+    value: 'manga',
+  },
+];
+
+export const listGenreId: TGenre[] = [
+  { genreId: 1, isEnabled: true, name: 'Action' },
+  { genreId: 2, isEnabled: true, name: 'Adventure' },
+  { genreId: 3, isEnabled: false, name: 'Fantasy' },
+  { genreId: 4, isEnabled: true, name: 'Sci-Fi' },
+  { genreId: 5, isEnabled: true }, // name is optional, so this is valid
+];
+
+export const languageOptions = [
+  { language: ELanguage.NA, name: 'Vietnamese' },
+  { language: ELanguage.VN, name: 'English' },
+];
+
+//#regnion State In Comic
+export const schemaComic = z.object({
+  name: z.string().min(1, 'Comic title is required'),
+  preface: z.string().min(1, 'Summary is required'),
+  listGenreId: z.array(z.number()).min(1, 'Select at least 1 genre'),
+  // coverImage: z.string().url(),
+  // List Optional
+  type: z.string().optional(),
+  createdBy: z.number().optional(),
+  amountOfReadings: z.coerce.number().positive('At least positive number').optional(),
+  language: z.nativeEnum(ELanguage).optional(),
+  hasAdult: z.boolean().optional(),
+});
+
+export type ComicFormProps = {
+  createdBy?: number;
+  type: string;
+  name: string;
+  preface: string;
+  amountOfReadings?: number;
+  coverImage: string;
+  language?: ELanguage[];
+  hasAdult: boolean;
+  listGenreId: TGenre[];
+};
+//#endregion

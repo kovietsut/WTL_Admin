@@ -3,6 +3,7 @@ import { ZodObject } from 'zod';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 type IndexedObject = { [key: string]: any };
+export type TOption<T = string, S = string> = { id: T; value: S };
 export type ValidationSchema = ZodObject<any>;
 export type TState = {
   error?: string;
