@@ -14,6 +14,7 @@ import Error500Page from '@/pages/Error/Error500.page';
 import Login from '@/pages/Login';
 import Comic from '@/pages/Comic';
 import ComicNewForm from '@/pages/Comic/_section/_form/_add/ComicNewForm';
+import ComicDetailForm from '@/pages/Comic/_section/_form/_detail/ComicDetailForm';
 export * from './path';
 
 // ----------------------------------------------------------------------------------
@@ -56,17 +57,9 @@ function Routes() {
             { element: <Navigate to={PATH.comics.root} replace />, index: true },
             { path: 'list', Component: Comic },
             { path: 'new', Component: ComicNewForm },
+            { path: 'detail/:id', Component: ComicDetailForm },
           ],
         },
-        // {
-        //   path: 'item',
-        //   element: VersionOutlet,
-        //   children: [
-        //     { element: <Navigate to={PATH.item.list} replace />, index: true },
-        //     { path: 'list', Component: ItemList },
-        //     { path: 'new', Component: ItemCreate },
-        //   ],
-        // },
       ],
     },
     { path: '401', Component: Error401Page },

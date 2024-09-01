@@ -1,4 +1,4 @@
-import { Box, Card, Divider, Grid, TextField, Typography } from '@mui/material';
+import { Box, Card, Divider, Grid, Typography } from '@mui/material';
 import { ProfileData } from '../Profile.state';
 import useStyle from '../Profile.style';
 

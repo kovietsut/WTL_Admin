@@ -1,16 +1,16 @@
-import Backdrop from '@mui/material/Backdrop';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
-import Fade from '@mui/material/Fade';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
 import Iconify from '@/components/atoms/Iconify';
 import { Divider, IconButton, Stack } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
-import { avatars } from '../Profile.state';
-import styled from 'styled-components';
+import Backdrop from '@mui/material/Backdrop';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Fade from '@mui/material/Fade';
+import Modal from '@mui/material/Modal';
+import Typography from '@mui/material/Typography';
 import { useRef, useState } from 'react';
 import AvatarEditor from 'react-avatar-editor';
+import styled from 'styled-components';
+import { avatars } from '../Profile.state';
 
 const modalStyle = {
   display: 'flex',
@@ -205,7 +205,9 @@ const UploadAvatarModal = () => {
                     scale={1.2}
                     rotate={0}
                   />
-                  <Button sx={{width: 30}} variant='contained' onClick={handleSave}>Save</Button>
+                  <Button sx={{ width: 30 }} variant="contained" onClick={handleSave}>
+                    Save
+                  </Button>
                 </Stack>
               )}
               {steps === 3 && <Typography>S3</Typography>}

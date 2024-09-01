@@ -59,6 +59,7 @@ export const useFetch = <T>(
     queryFn: ({ queryKey, signal }) => fetcher({ queryKey, signal }, baseURL),
     enabled: !!url,
     ...config,
+    refetchOnMount: false,
   });
 
   return context;

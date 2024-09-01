@@ -34,7 +34,7 @@ const ComicList = () => {
     <Box>
       <Grid container spacing={2}>
         {paginatedData.map((manga) => (
-          <Grid item xs={12} sm={6} md={3} key={manga.id}>
+          <Grid item xs={12} sm={6} md={6} key={manga.id}>
             <ComicCard manga={manga} />
           </Grid>
         ))}

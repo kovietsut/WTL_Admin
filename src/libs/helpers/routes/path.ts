@@ -9,6 +9,8 @@ export const PATH = {
     root: '/app/comics',
     list: '/app/comics/list',
     new: '/app/comics/new',
+    detail: '/app/comics/detail/:id',
+    edit: '/app/comics/edit/:id',
   },
   novel: '/app/novel',
   translator: '/app/translator',
