@@ -1,4 +1,4 @@
-import ChapterList from './_chapters/ChapterList';
+import ChapterList from './_section/_list/ChapterList';
 
 const Chapter = () => {
   return <ChapterList />;

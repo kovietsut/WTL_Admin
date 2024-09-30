@@ -29,11 +29,20 @@ const InformationSection = () => {
 
         {/* Chapters Layout */}
         <Divider sx={{ mt: 6 }} />
+        <Box sx={{ mt: 4, textAlign: 'right' }}>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ borderRadius: '8px', padding: '10px 20px' }}
+            onClick={() => {}}
+          >
+            Add Chapter
+          </Button>
+        </Box>
         <Box sx={{ mt: 6 }}>
           <Chapter />
         </Box>
       </Box>
-
       {/* Footer Layout */}
       <Box
         sx={{

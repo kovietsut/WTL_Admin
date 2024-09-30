@@ -12,6 +12,13 @@ export const PATH = {
     detail: '/app/comics/detail/:id',
     edit: '/app/comics/edit/:id',
   },
+  chapters: {
+    root: '/app/chapters',
+    list: '/app/chapters/list',
+    new: '/app/chapters/new',
+    detail: '/app/chapters/detail/:id',
+    edit: '/app/chapters/edit/:id',
+  },
   novel: '/app/novel',
   translator: '/app/translator',
   user: '/app/user',

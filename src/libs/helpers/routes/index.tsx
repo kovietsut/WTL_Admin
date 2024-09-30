@@ -2,19 +2,19 @@ import AuthLayout from '@/components/templates/layout/AuthLayout';
 import MainLayout from '@/components/templates/layout/MainLayout';
 import AuthGuard from '@/guards/AuthGuard';
 import GuestGuard from '@/guards/GuestGuard';
+import Comic from '@/pages/Comic';
+import ComicNewForm from '@/pages/Comic/_section/_form/_add/ComicNewForm';
+import ComicDetailForm from '@/pages/Comic/_section/_form/_detail/ComicDetailForm';
+import Error401Page from '@/pages/Error/Error401.page';
+import Error403Page from '@/pages/Error/Error403.page';
+import Error404Page from '@/pages/Error/Error404.page';
+import Error500Page from '@/pages/Error/Error500.page';
+import Login from '@/pages/Login';
 import { lazy } from 'react';
 import { BrowserRouter, MemoryRouter, Navigate, useRoutes } from 'react-router-dom';
 import { StaticRouter } from 'react-router-dom/server';
 import { Loadable } from './Loadable';
 import { PATH } from './path';
-import Error401Page from '@/pages/Error/Error401.page';
-import Error404Page from '@/pages/Error/Error404.page';
-import Error403Page from '@/pages/Error/Error403.page';
-import Error500Page from '@/pages/Error/Error500.page';
-import Login from '@/pages/Login';
-import Comic from '@/pages/Comic';
-import ComicNewForm from '@/pages/Comic/_section/_form/_add/ComicNewForm';
-import ComicDetailForm from '@/pages/Comic/_section/_form/_detail/ComicDetailForm';
 export * from './path';
 
 // ----------------------------------------------------------------------------------
@@ -58,6 +58,15 @@ function Routes() {
             { path: 'list', Component: Comic },
             { path: 'new', Component: ComicNewForm },
             { path: 'detail/:id', Component: ComicDetailForm },
+          ],
+        },
+        {
+          path: 'chapters',
+          children: [
+            { element: <Navigate to={PATH.chapters.root} replace />, index: true },
+            // { path: 'list', Component: Comic },
+            // { path: 'new', Component: ChapterAddForm },
+            // { path: 'detail/:id', Component: ComickDetailForm },
           ],
         },
       ],

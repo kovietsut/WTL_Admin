@@ -1,3 +1,4 @@
+import ChapterAddForm from '@/pages/Chapter/_section/_add/ChapterAddForm';
 import { categoryOptions, ComicFormProps, schemaComic } from '@/pages/Comic/Comic.state';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Grid, Stack, Step, StepContent, StepLabel, Stepper, Typography } from '@mui/material';
@@ -8,6 +9,7 @@ import ComicCategoryForm from './ComicCategoryForm';
 
 const ComicNewForm = () => {
   const [activeStep, setActiveStep] = useState(0);
+
   const defaultValues = useMemo<ComicFormProps>(
     () => ({
       createdBy: undefined,
@@ -41,7 +43,7 @@ const ComicNewForm = () => {
   const onSubmit = useCallback((data: ComicFormProps) => {
     console.log('Form data: ', data);
     if (data) {
-      // Call API here
+      // Call your API here
     }
   }, []);
 
@@ -54,6 +56,10 @@ const ComicNewForm = () => {
       {
         label: 'Detail',
         content: <ComicAddDetailForm onBack={handleBack} onNext={handleSubmit(onSubmit)} />,
+      },
+      {
+        label: 'Chapter',
+        content: <ChapterAddForm />,
       },
     ];
   }, [handleBack, handleNext, handleSubmit, onSubmit]);

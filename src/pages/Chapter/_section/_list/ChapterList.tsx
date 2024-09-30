@@ -1,5 +1,5 @@
 import Iconify from '@/components/atoms/Iconify';
-import { Box, Card, Grid, Pagination, Typography } from '@mui/material';
+import { Box, Card, Grid, IconButton, Pagination, Typography } from '@mui/material';
 import { useState } from 'react';
 
 interface Chapter {
@@ -7,6 +7,8 @@ interface Chapter {
   title: string;
   views: number;
   image: string;
+  publishDate: string; // Added publish date
+  status: 'Published' | 'Draft'; // Added status
 }
 
 const chapters: Chapter[] = [
@@ -15,18 +17,24 @@ const chapters: Chapter[] = [
     title: 'Rebirth and Betrayal',
     views: 156899,
     image: '/assets/sample.png',
+    publishDate: '2024-08-25',
+    status: 'Published',
   },
   {
     number: 2,
     title: 'Into the Abyss',
     views: 120345,
     image: '/assets/sample.png',
+    publishDate: '2024-08-27',
+    status: 'Draft',
   },
   {
     number: 3,
     title: 'Shadow’s Edge',
     views: 98452,
     image: '/assets/sample.png',
+    publishDate: '2024-08-30',
+    status: 'Published',
   },
 ];
 
@@ -36,6 +44,14 @@ const ChapterList = () => {
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
+  };
+
+  const handleEdit = (chapterNumber: number) => {
+    // Handle edit action
+  };
+
+  const handleDelete = (chapterNumber: number) => {
+    // Handle delete action
   };
 
   return (
@@ -60,14 +76,25 @@ const ChapterList = () => {
                 }}
                 onClick={() => {}}
               >
-                {/* Chapter Information on the left */}
+                {/* Background Image on the left */}
+                <Box
+                  sx={{
+                    width: '80px',
+                    height: 'auto',
+                    backgroundImage: `url(${chapter.image})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    borderRadius: '8px 0 0 8px',
+                    marginRight: 2,
+                  }}
+                />
+
+                {/* Chapter Information on the right */}
                 <Box sx={{ flex: 1, textAlign: 'left', padding: '4px' }}>
-                  {' '}
-                  {/* Ensures the text is left-aligned */}
                   <Typography variant="h6" sx={{ fontWeight: 'bold', textAlign: 'left' }}>
                     Chapter {chapter.number}: {chapter.title}
                   </Typography>
-                  <Box sx={{ display: 'flex' }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     <Iconify
                       icon="material-symbols:visibility"
                       sx={{ fontSize: '24px', color: 'white' }}
@@ -76,28 +103,48 @@ const ChapterList = () => {
                       {chapter.views.toLocaleString()}
                     </Typography>
                   </Box>
+                  <Typography variant="body2" color="grey.400" sx={{ textAlign: 'left', mt: 1 }}>
+                    Published on: {chapter.publishDate}
+                  </Typography>
+                  <Typography variant="body2" color="grey.400" sx={{ textAlign: 'left', mt: 1 }}>
+                    Status: {chapter.status}
+                  </Typography>
                 </Box>
 
-                {/* Background Image on the right */}
+                {/* Action buttons */}
                 <Box
                   sx={{
                     position: 'absolute',
-                    right: 0,
-                    top: 0,
-                    bottom: 0,
-                    width: '80px',
-                    height: 'auto',
-                    backgroundImage: `url(${chapter.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    borderRadius: '0 8px 8px 0',
+                    top: 8,
+                    right: 8,
+                    display: 'flex',
+                    gap: 1,
                   }}
-                />
+                >
+                  <IconButton
+                    color="primary"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleEdit(chapter.number);
+                    }}
+                  >
+                    <Iconify icon="material-symbols:edit" />
+                  </IconButton>
+                  <IconButton
+                    color="error"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleDelete(chapter.number);
+                    }}
+                  >
+                    <Iconify icon="material-symbols:delete" />
+                  </IconButton>
+                </Box>
               </Card>
             </Grid>
           ))
         ) : (
-          <Typography variant="body1">There are no chapter here</Typography>
+          <Typography variant="body1">There are no chapters here</Typography>
         )}
       </Grid>
       {/* Pagination Controls */}
